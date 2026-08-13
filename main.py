@@ -6,6 +6,7 @@ from core.classifier import predict
 from core.data_loader import load_examples, build_label_map
 from actions.registry import REGISTRY
 from memory.corrections import log_correction
+from actions.app_finder import build_app_index
 
 THRESHOLD = 0.6
 
@@ -17,11 +18,15 @@ def load_model():
 
     label_map = build_label_map(load_examples(SEED_FILE))
 
-    return vocab, label_map, w1, b1, w2, b2
+    app_index = build_app_index()
+
+    context = {"app_index": app_index}
+
+    return vocab, label_map, w1, b1, w2, b2, context
 
 
 def main():
-    vocab, label_map, w1, b1, w2, b2 = load_model()
+    vocab, label_map, w1, b1, w2, b2, context = load_model()
     print("Write a message...")
 
     last_text = None
@@ -55,7 +60,7 @@ def main():
             continue
 
         handler = REGISTRY[label]
-        handler(text)
+        handler(text, context)
 
         if text == "exit":
             break

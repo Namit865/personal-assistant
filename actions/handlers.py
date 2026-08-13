@@ -4,6 +4,8 @@ from datetime import datetime
 from config import ROOT
 import sys
 from pathlib import Path
+from actions.app_finder import find_app_path
+import os
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -31,16 +33,22 @@ FILLER = {
 }
 
 
-def open_app(text):
+def open_app(text, context):
     print(f"[open app] {text}")
+    app_name = extract_app_name(text)
+    result = find_app_path(app_name, context["app_index"])
+    if result:
+        os.startfile(result)
+    else:
+        print(f"couldn't find an app called '{app_name}'")
 
 
-def web_search(text):
+def web_search(text, context):
     print(f"[web search] {text}")
     webbrowser.open(f"https://www.google.com/search?q={quote_plus(text)}")
 
 
-def create_note(text):
+def create_note(text, context):
     print(f"[create_note] {text}")
     notes = ROOT / "notes.txt"
     with open(notes, "a", encoding="utf-8") as f:
@@ -48,15 +56,15 @@ def create_note(text):
     print(f"note saved to {notes}")
 
 
-def system_status(text):
+def system_status(text, context):
     print(f"[system_status] {text}")
 
 
-def exit_assistant(text):
+def exit_assistant(text, context):
     print(f"[exit] {text}")
 
 
-def unknown(text):
+def unknown(text, context):
     print("I didn't understand that.")
 
 
@@ -71,7 +79,3 @@ def extract_app_name(text):
     result = " ".join(kept)
 
     return result
-
-
-for t in ["open discord", "can you launch spotify for me", "fire up vs code"]:
-    print(f"{t!r} -> {extract_app_name(t)!r}")
