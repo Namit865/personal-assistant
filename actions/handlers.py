@@ -6,6 +6,9 @@ import sys
 from pathlib import Path
 from actions.app_finder import find_app_path
 import os
+import psutil
+import subprocess
+from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -57,7 +60,59 @@ def create_note(text, context):
 
 
 def system_status(text, context):
+    text = text.lower()
     print(f"[system_status] {text}")
+    now = datetime.now()
+    print("Time:", now.strftime("%I:%M:%S %p"))
+    cpu = psutil.cpu_percent(interval=1)
+    mem = psutil.virtual_memory()
+    disk = psutil.disk_usage("/")
+    battery = psutil.sensors_battery()
+
+    result = subprocess.run(
+        ["powercfg", "/getactivescheme"], capture_output=True, text=True
+    )
+    mode = result.stdout.split("(")[-1]
+    mode = mode.split(")")[0]
+
+    if "battery" in text or "charging" in text:
+        if battery:
+            print(
+                f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}"
+            )
+        else:
+            print("No Battery Detected.")
+
+    if "cpu" in text:
+        print(f"Cpu Usage: {cpu}%")
+
+    if "ram" in text:
+        print(
+            f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)"
+        )
+
+    if "current mode" in text or "power plan" in text:
+        print("Power Mode:", mode)
+
+    if "disk" in text:
+        print(
+            f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)"
+        )
+
+    if "memory" in text:
+        processes = []
+
+        for proc in psutil.process_iter(["name", "memory_info"]):
+
+            processes.append((proc.info["name"], proc.info["memory_info"].rss))
+
+        sorted_processes = sorted(processes, key=lambda p: p[1], reverse=True)
+
+        top_processes = sorted_processes[:5]
+
+        for name, mem_bytes in top_processes:
+            mem_bytes = mem_bytes / 1024**2
+            print(f"Top Processes: {name} - {mem_bytes:.1f} MB")
 
 
 def exit_assistant(text, context):
