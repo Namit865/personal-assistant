@@ -62,6 +62,9 @@ def main():
         handler = REGISTRY[label]
         handler(text, context)
 
+        if label == "exit":
+            break
+
         if text == "exit":
             break
 

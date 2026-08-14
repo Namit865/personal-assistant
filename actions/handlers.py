@@ -136,6 +136,7 @@ def system_status(text, context):
 
 def exit_assistant(text, context):
     print(f"[exit] {text}")
+    print("Shutting down. Goodbye!")
 
 
 def unknown(text, context):
