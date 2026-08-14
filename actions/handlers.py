@@ -114,6 +114,25 @@ def system_status(text, context):
             mem_bytes = mem_bytes / 1024**2
             print(f"Top Processes: {name} - {mem_bytes:.1f} MB")
 
+    if "system status" in text or "check status" in text:
+        if battery:
+            print(
+                f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}"
+            )
+        else:
+            print("No Battery Detected.")
+
+        print(f"Cpu Usage: {cpu}%")
+
+        print(
+            f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)"
+        )
+        print("Power Mode:", mode)
+
+        print(
+            f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)"
+        )
+
 
 def exit_assistant(text, context):
     print(f"[exit] {text}")
