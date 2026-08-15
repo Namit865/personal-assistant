@@ -1,4 +1,5 @@
 import json
+import numpy as np
 
 
 def load_examples(path):
@@ -28,3 +29,19 @@ def build_label_map(examples):
         sorted_dict[val] = i
 
     return sorted_dict
+
+
+def split_examples(examples, test_ratio, seed):
+    rng = np.random.default_rng(seed)
+
+    idx = rng.permutation(len(examples))
+
+    n_test = int(len(examples) * test_ratio)
+
+    test_idx, train_idx = idx[:n_test], idx[n_test:]
+
+    train_ex = [examples[i] for i in train_idx]
+
+    test_ex = [examples[i] for i in test_idx]
+
+    return train_ex, test_ex

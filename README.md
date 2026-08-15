@@ -97,7 +97,9 @@ personal-assistant/
 │   └── app_finder.py          # build_app_index(), find_app_path()
 ├── memory/
 │   └── corrections.py         # !fix logging (read-modify-write JSON)
-├── data/                     # seed examples + corrections.json (gitignored)
+├── data/
+│   ├── seed_examples.json    # training examples
+│   └── corrections.json      # !fix log (gitignored)
 ├── weights.npz                # trained parameters (committed)
 ├── vocab.json                  # trained vocabulary (committed)
 └── notes.txt                    # created at runtime by create_note (gitignored)
