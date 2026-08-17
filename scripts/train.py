@@ -40,7 +40,7 @@ print(
     "==========================Split Train/Test (genralization)=============================="
 )
 
-# =========================== Split Train/Test (genralization) ===========================
+# =============== Split Train/Test (genralization) ===============
 
 train_data, test_data = split_examples(examples, 0.2, 42)
 
@@ -81,12 +81,14 @@ w1_pred, b1_pred, w2_pred, b2_pred = (
 
 
 for cmd in [
-    "open discord",
-    "search for pytoch documentations",
-    "check pc temprature",
-    "make an note about metting",
-    "ciya",
-    "asdiuasgfa",
+    "close discord",
+    "exit",
+    "quit spotify",
+    "goodbye",
+    "kill vlc",
+    "shut down the assistant",
+    "close that window",
+    "leave now",
 ]:
     label, conf = predict(
         cmd, vocab, labels, w1_pred, b1_pred, w2_pred, b2_pred
