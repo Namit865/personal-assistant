@@ -2686,5 +2686,197 @@
   {
     "text": "kfaoofncoas",
     "intent": "unknown"
+  },
+  {
+    "text": "close discord",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit spotify",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill vlc",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit chrome",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop notion",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down figma",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate postman",
+    "intent": "close_app"
+  },
+  {
+    "text": "close out of xampp",
+    "intent": "close_app"
+  },
+  {
+    "text": "can you close vs code",
+    "intent": "close_app"
+  },
+  {
+    "text": "could you quit cursor",
+    "intent": "close_app"
+  },
+  {
+    "text": "i need to close photoshop",
+    "intent": "close_app"
+  },
+  {
+    "text": "would you mind closing premiere",
+    "intent": "close_app"
+  },
+  {
+    "text": "please shut down zoom",
+    "intent": "close_app"
+  },
+  {
+    "text": "close slack for me",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill the notepad window",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate excel",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit word",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit powerpoint",
+    "intent": "close_app"
+  },
+  {
+    "text": "close the terminal",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down vscode",
+    "intent": "close_app"
+  },
+  {
+    "text": "force close calculator",
+    "intent": "close_app"
+  },
+  {
+    "text": "close edge",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit safari",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill firefox",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop opera",
+    "intent": "close_app"
+  },
+  {
+    "text": "close brave",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit tor",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down teams",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit messenger",
+    "intent": "close_app"
+  },
+  {
+    "text": "close notepad++",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate apple music",
+    "intent": "close_app"
+  },
+  {
+    "text": "close docker",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit git bash",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill command prompt",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down powershell",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit intellij",
+    "intent": "close_app"
+  },
+  {
+    "text": "close eclipse",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit pycharm",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate sublime text",
+    "intent": "close_app"
+  },
+  {
+    "text": "close atom",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill obsidian",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down mega sync",
+    "intent": "close_app"
+  },
+  {
+    "text": "close that window",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill this process",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop the running program",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down this application",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate the active process",
+    "intent": "close_app"
+  },
+  {
+    "text": "close whatever is open right now",
+    "intent": "close_app"
   }
 ]
