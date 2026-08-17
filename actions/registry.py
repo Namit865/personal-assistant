@@ -5,9 +5,11 @@ from actions.handlers import (
     system_status,
     exit_assistant,
     unknown,
+    close_app,
 )
 
 REGISTRY = {
+    "close_app": close_app,
     "open_app": open_app,
     "web_search": web_search,
     "create_note": create_note,

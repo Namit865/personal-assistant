@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import psutil
 
 
 def build_app_index():
@@ -47,3 +48,26 @@ def find_app_path(app_name, index):
     else:
         best_key = min(pool, key=len)
         return index[best_key]
+
+
+def list_running_processes():
+    processes = []
+    for proc in psutil.process_iter(["pid", "name"]):
+        processes.append((proc.info["pid"], proc.info["name"]))
+    return processes
+
+
+def find_matching_processes(app_name, processes):
+    matches = []
+    for pid, name in processes:
+        clean_name = name.lower().removesuffix(".exe")
+
+        if app_name in clean_name:
+            matches.append((pid, name))
+
+    return matches
+
+
+processes = list_running_processes()
+matches = find_matching_processes("claude", processes)
+print(matches)

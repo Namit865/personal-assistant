@@ -4,7 +4,11 @@ from datetime import datetime
 from config import ROOT
 import sys
 from pathlib import Path
-from actions.app_finder import find_app_path
+from actions.app_finder import (
+    find_app_path,
+    list_running_processes,
+    find_matching_processes,
+)
 import os
 import psutil
 import subprocess
@@ -15,11 +19,6 @@ from collections import Counter
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
-
-data = json.load(open("data/seed_examples.json"))
-
-print(Counter(ex["intent"] for ex in data))
-
 
 FILLER = {
     "open",
@@ -40,7 +39,43 @@ FILLER = {
     "app",
     "application",
     "program",
+    "close",
+    "kill",
+    "quit",
+    "exit",
+    "stop",
+    "shut",
+    "down",
+    "terminate",
+    "out",
+    "of",
+    "could",
+    "would",
+    "mind",
+    "closing",
+    "force",
+    "window",
+    "need",
+    "i",
+    "to",
 }
+
+
+def close_app(text, content):
+    app_name = extract_app_name(text)
+    processes = list_running_processes()
+
+    matches = find_matching_processes(app_name, processes)
+
+    if not matches:
+        print(f"No running app called '{app_name}'")
+    else:
+        for pid, name in matches:
+            try:
+                psutil.Process(pid).terminate()
+                print(f"closed {name} (pid {pid})")
+            except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
+                print(f"couldn't close the {name} (pid {pid}): {e}")
 
 
 def open_app(text, context):
