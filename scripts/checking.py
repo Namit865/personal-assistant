@@ -48,4 +48,4 @@ TIER2_KEEP = {
 }
 
 fresh = json.load(open("data/seed_examples.json"))
-print(Counter(ex["intent"] for ex in fresh))
+print(Counter(ex['intent'] for ex in fresh))

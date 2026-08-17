@@ -2878,5 +2878,217 @@
   {
     "text": "close whatever is open right now",
     "intent": "close_app"
+  },
+  {
+    "text": "Exit.",
+    "intent": "exit"
+  },
+  {
+    "text": "exit now",
+    "intent": "exit"
+  },
+  {
+    "text": "exit please",
+    "intent": "exit"
+  },
+  {
+    "text": "Quit.",
+    "intent": "exit"
+  },
+  {
+    "text": "quit now",
+    "intent": "exit"
+  },
+  {
+    "text": "please quit",
+    "intent": "exit"
+  },
+  {
+    "text": "can you quit",
+    "intent": "exit"
+  },
+  {
+    "text": "Goodbye.",
+    "intent": "exit"
+  },
+  {
+    "text": "good bye",
+    "intent": "exit"
+  },
+  {
+    "text": "bye",
+    "intent": "exit"
+  },
+  {
+    "text": "bye for now",
+    "intent": "exit"
+  },
+  {
+    "text": "time to go, goodbye",
+    "intent": "exit"
+  },
+  {
+    "text": "i must leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "leave now please",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "shut down please",
+    "intent": "exit"
+  },
+  {
+    "text": "please shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "shut down now",
+    "intent": "exit"
+  },
+  {
+    "text": "Shutdown.",
+    "intent": "exit"
+  },
+  {
+    "text": "turn yourself off please",
+    "intent": "exit"
+  },
+  {
+    "text": "could you turn yourself off",
+    "intent": "exit"
+  },
+  {
+    "text": "power off now",
+    "intent": "exit"
+  },
+  {
+    "text": "power down please",
+    "intent": "exit"
+  },
+  {
+    "text": "disconnect now",
+    "intent": "exit"
+  },
+  {
+    "text": "please disconnect",
+    "intent": "exit"
+  },
+  {
+    "text": "log off now",
+    "intent": "exit"
+  },
+  {
+    "text": "please log off",
+    "intent": "exit"
+  },
+  {
+    "text": "log me off",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate now",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate please",
+    "intent": "exit"
+  },
+  {
+    "text": "could you deactivate",
+    "intent": "exit"
+  },
+  {
+    "text": "stop everything now",
+    "intent": "exit"
+  },
+  {
+    "text": "please stop everything",
+    "intent": "exit"
+  },
+  {
+    "text": "end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "please end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "end the session now",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to quit",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to leave",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to quit",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to exit",
+    "intent": "exit"
+  },
+  {
+    "text": "would you exit",
+    "intent": "exit"
+  },
+  {
+    "text": "would you quit",
+    "intent": "exit"
+  },
+  {
+    "text": "could you exit",
+    "intent": "exit"
+  },
+  {
+    "text": "could you leave",
+    "intent": "exit"
+  },
+  {
+    "text": "can you leave",
+    "intent": "exit"
+  },
+  {
+    "text": "can you shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "quit please",
+    "intent": "exit"
+  },
+  {
+    "text": "shut it all down",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate yourself now",
+    "intent": "exit"
   }
 ]
