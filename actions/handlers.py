@@ -9,10 +9,17 @@ import os
 import psutil
 import subprocess
 from datetime import datetime
+import json
+from collections import Counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
+
+data = json.load(open("data/seed_examples.json"))
+
+print(Counter(ex["intent"] for ex in data))
+
 
 FILLER = {
     "open",
