@@ -1,6 +1,6 @@
 # Personal Assistant (from scratch)
 
-A Windows command-line personal assistant with a hand-built intent classifier — no ML libraries. Every gradient in the network is derived by hand and verified numerically against PyTorch autograd (max abs diff `1e-17`–`1e-19`). Held-out test accuracy: **88.1%**.
+A Windows command-line personal assistant with a hand-built intent classifier — no ML libraries. Every gradient in the network is derived by hand and verified numerically against PyTorch autograd (max abs diff `1e-17`–`1e-19`). Held-out test accuracy: **86.4%** across 7 intents (measured via a permanent, gated diagnostic split — see `scripts/train.py`).
 
 This isn't a wrapper around an existing NLU library. The classifier is a two-layer neural net written in raw NumPy, trained on a small seed dataset, with forward pass, backward pass, and parameter updates all implemented from the underlying math — not `model.fit()`.
 
@@ -25,11 +25,12 @@ text → [classifier: predict()] → (label, confidence)
                               REGISTRY[label](text, context) → action happens
 ```
 
-## The six intents
+## The seven intents
 
 | Intent | What it does |
 |---|---|
 | `open_app` | Finds and launches an installed desktop app by short name (e.g. "open vlc") |
+| `close_app` | Finds every running process matching a short app name and terminates all of them |
 | `web_search` | Opens a Google search for the typed query in the default browser |
 | `create_note` | Appends a timestamped line to `notes.txt` |
 | `system_status` | Reports time, CPU, RAM, disk, battery, power mode, and top memory-consuming processes — filtered to just what you asked for |
@@ -44,6 +45,16 @@ Rather than a hardcoded `{"discord": "C:/..."}` map — which breaks on any othe
 2. **Prefix-ranked substring match** — e.g. "vlc" correctly resolves to `VLC media player.lnk` over `VLC media player - reset preferences and cache files.lnk`, because it prefers keys that *start with* the query, then breaks ties by shortest key
 
 If the app was installed after the index was built, a miss triggers exactly one rescan before giving up.
+
+### `close_app` in more detail
+
+Queries running processes fresh on every call (never cached — unlike `open_app`'s index, a process list a few seconds stale is actively wrong). Matches by substring against process names, same lowercase approach as `open_app`, then **terminates every matching process**, not just one — multi-process apps like Chrome or Electron-based tools (VS Code, Discord, this project's own `claude.exe`) spawn one process per tab/window/helper, so killing a single instance leaves the app visibly still running.
+
+Two things worth knowing about how it fails:
+- `psutil.Process.terminate()` is a **forceful kill** (`TerminateProcess` on Windows) — there's no "save changes?" prompt. Fine for disposable apps, real risk for anything with unsaved work.
+- A process can legitimately exit in the gap between listing it and killing it (`psutil.NoSuchProcess`), or be protected by the OS (`psutil.AccessDenied`, e.g. system processes). Both are caught per-process and reported, not allowed to crash the whole command.
+
+**`close_app` vs `exit` is a deliberately resolved ambiguity, not an accident.** Bare phrases like "close" or "stop" with no named object could plausibly mean either "quit this app" or "shut down the assistant." Where training data was genuinely ambiguous, it was routed toward `close_app` on purpose — a wrong `close_app` guess just fails harmlessly (`"couldn't find an app called '...'"`), while a wrong `exit` guess ends the whole session. Cheaper failure wins by default.
 
 ### `system_status` in more detail
 
@@ -73,8 +84,8 @@ This logs the text and the correct label to `data/corrections.json` for a future
 ## Known limitations
 
 - **`.lnk` scanning has a real boundary.** It can launch traditionally-installed desktop apps, but it cannot reach Windows Store/UWP apps (modern Calculator, Notepad in some installs) or protocol-addressed system panels (`ms-settings:`), because those were never expressed as `.lnk` files to begin with. This isn't a bug to fix — it's a different addressing mechanism entirely, out of scope for this approach.
-- **`close_app` doesn't exist yet.** There's no way to close an app the assistant opened — this is a genuine gap in the intent set (not just missing training data), planned as the next major addition.
-- **The classifier's weakest intent is `system_status`** (~70% on held-out data at last check), mostly from leading-word ambiguity in the training examples. Phrasings not well-covered by seed data may return "not sure" or misroute — that's what `!fix` is for.
+- **`close_app` terminates forcefully, with no save prompt.** See the detail section above — this is a real risk for apps with unsaved work, not just a rough edge.
+- **The classifier's weakest intent was `system_status`** (~70% on held-out data, measured before the 7-intent retrain), mostly from leading-word ambiguity in the training examples. Phrasings not well-covered by seed data may return "not sure" or misroute — that's what `!fix` is for.
 - **CPU/GPU temperature is intentionally excluded.** `psutil` doesn't reliably expose it on Windows; reporting a number here would mean faking it.
 
 ## Project structure
@@ -94,7 +105,7 @@ personal-assistant/
 ├── actions/
 │   ├── handlers.py            # one function per intent
 │   ├── registry.py            # label → handler function map
-│   └── app_finder.py          # build_app_index(), find_app_path()
+│   └── app_finder.py          # build_app_index(), find_app_path(), list_running_processes(), find_matching_processes()
 ├── memory/
 │   └── corrections.py         # !fix logging (read-modify-write JSON)
 ├── data/
@@ -107,7 +118,7 @@ personal-assistant/
 
 ## Roadmap
 
-- [ ] `memory/retrain.py` — gated batched retrain on seed + accumulated corrections
-- [ ] `close_app` intent — new label, ~100 training examples, retrain, handler, registry entry
-- [ ] Permanent train/test split in-repo
+- [x] Permanent train/test split in-repo (`scripts/train.py`)
+- [x] `memory/retrain.py` — gated batched retrain on seed + accumulated corrections
+- [x] `close_app` intent — new label, retrain, handler, registry entry
 - [ ] Fill in `test_gradients.py`, `test_vectorizer.py`, `test_text_utils.py`
