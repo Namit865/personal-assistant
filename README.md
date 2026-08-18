@@ -121,4 +121,4 @@ personal-assistant/
 - [x] Permanent train/test split in-repo (`scripts/train.py`)
 - [x] `memory/retrain.py` — gated batched retrain on seed + accumulated corrections
 - [x] `close_app` intent — new label, retrain, handler, registry entry
-- [ ] Fill in `test_gradients.py`, `test_vectorizer.py`, `test_text_utils.py`
+- [x] Fill in `test_gradients.py`, `test_vectorizer.py`, `test_text_utils.py`

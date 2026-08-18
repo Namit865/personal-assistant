@@ -1,10 +1,11 @@
 import os
 from pathlib import Path
 import psutil
+import subprocess
+import json
 
 
 def build_app_index():
-
     APPDATA_PATH = Path(os.environ["APPDATA"]).joinpath(
         "Microsoft/Windows/Start Menu/Programs"
     )
@@ -22,6 +23,29 @@ def build_app_index():
                     index[file.stem.lower()] = str(file)
                 else:
                     already_exists += 1
+
+    try:
+        cmd = 'powershell -Command "Get-StartApps | ConvertTo-Json"'
+        result = subprocess.run(
+            cmd, capture_output=True, text=True, shell=True
+        )
+
+        if result.returncode == 0 and result.stdout.strip():
+            raw_apps = json.loads(result.stdout)
+
+            if isinstance(raw_apps, dict):
+                raw_apps = [raw_apps]
+
+            for app in raw_apps:
+                name_key = app["Name"].lower()
+                app_id = app["AppID"]
+
+                if name_key not in index:
+                    if "\\" not in app_id and ":" not in app_id:
+                        index[name_key] = f"shell:AppsFolder\\{app_id}"
+    except Exception as e:
+        print("Error:", e)
+
     return index
 
 
@@ -66,8 +90,3 @@ def find_matching_processes(app_name, processes):
             matches.append((pid, name))
 
     return matches
-
-
-processes = list_running_processes()
-matches = find_matching_processes("claude", processes)
-print(matches)
