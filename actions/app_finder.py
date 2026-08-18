@@ -77,7 +77,11 @@ def find_app_path(app_name, index):
 def list_running_processes():
     processes = []
     for proc in psutil.process_iter(["pid", "name"]):
-        processes.append((proc.info["pid"], proc.info["name"]))
+        try:
+            processes.append((proc.info["pid"], proc.info["name"]))
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            continue
+
     return processes
 
 
