@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 data/corrections.json
 notes.txt
+data/squad/
