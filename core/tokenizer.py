@@ -80,3 +80,26 @@ def decode(token, merges):
                 result.append(toks)
         token = result
     return token
+
+
+def build_token_ranges(text, merges):
+    ranges = []
+    pos = 0
+    text = list(text)
+
+    tokens = encode(text, merges)
+
+    for tok in tokens:
+        decode_tokens = decode([tok], merges)
+        length = len(decode_tokens)
+        ranges.append((tok, pos, pos + length))
+
+        pos += length
+
+    return ranges
+
+
+def find_token_for_char(ranges, ans_idx):
+    for tok, start, end in ranges:
+        if ans_idx >= start and ans_idx < end:
+            return tok, start, end

@@ -1,51 +1,17 @@
 import sys
 import json
 from pathlib import Path
-from collections import Counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from config import BPE_MERGES_FILE
+from core.tokenizer import encode, build_token_ranges, find_token_for_char
 
-TIER1_OBJECTS = {
-    "app",
-    "program",
-    "window",
-    "script",
-    "process",
-    "thread",
-    "task",
-    "terminal",
-    "shell",
-    "dialog",
-    "interface",
-    "pipeline",
-    "module",
-    "tool",
-    "daemon",
-    "framework",
-}
+merges = json.load(open(BPE_MERGES_FILE))
+merges = [(tok, tuple(pair)) for tok, pair in merges]
 
-TIER2_KEEP = {
-    "exit",
-    "quit",
-    "goodbye",
-    "bye",
-    "shutdown",
-    "shut",
-    "down",
-    "off",
-    "logoff",
-    "log",
-    "deactivate",
-    "leave",
-    "disconnect",
-    "assistant",
-    "session",
-    "yourself",
-    "interaction",
-    "everything",
-    "sleep",
-}
-
-fresh = json.load(open("data/seed_examples.json"))
-print(Counter(ex['intent'] for ex in fresh))
+context = "Architecturally, the school has a Catholic character. Atop the Main Building's gold dome is a golden statue of the Virgin Mary."
+tokens = encode(list(context), merges)
+ranges = build_token_ranges(context, merges)
+result = find_token_for_char(ranges, 3)
+print(result)
