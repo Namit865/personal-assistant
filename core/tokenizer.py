@@ -103,3 +103,31 @@ def find_token_for_char(ranges, ans_idx):
     for tok, start, end in ranges:
         if ans_idx >= start and ans_idx < end:
             return tok, start, end
+
+
+def find_answer_span(ranges, answer_start, answer_text):
+    answer_end = answer_start + len(answer_text) - 1
+
+    start_token = find_token_for_char(ranges, answer_start)
+
+    end_token = find_token_for_char(ranges, answer_end)
+
+    return start_token, end_token
+
+
+def build_bpe_vocab(merges, joined_text):
+    vocab = {}
+    idx = 1
+    vocab["<UNK>"] = 0
+
+    for ch in set(joined_text):
+        vocab[ch] = idx
+
+        idx += 1
+
+    for new_token, pair in merges:
+        vocab[new_token] = idx
+
+        idx += 1
+
+    return vocab

@@ -4,8 +4,29 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from config import BPE_MERGES_FILE
-from core.tokenizer import encode, build_token_ranges, find_token_for_char
+from config import BPE_MERGES_FILE, SQUAD_TRAIN_FILE
+from core.tokenizer import (
+    encode,
+    build_token_ranges,
+    find_token_for_char,
+    find_answer_span,
+    build_bpe_vocab,
+)
+
+train_data = json.load(open(SQUAD_TRAIN_FILE))
+
+articles = train_data["data"][:50]
+
+all_text = []
+
+for article in articles:
+    for paras in article["paragraphs"]:
+        all_text.append(paras["context"])
+
+        for qa in paras["qas"]:
+            all_text.append(qa["question"])
+
+joined_text = " ".join(all_text)
 
 merges = json.load(open(BPE_MERGES_FILE))
 merges = [(tok, tuple(pair)) for tok, pair in merges]
@@ -14,4 +35,7 @@ context = "Architecturally, the school has a Catholic character. Atop the Main B
 tokens = encode(list(context), merges)
 ranges = build_token_ranges(context, merges)
 result = find_token_for_char(ranges, 3)
-print(result)
+span = find_answer_span(ranges, 34, "catholic")
+vocab = build_bpe_vocab(merges, joined_text)
+print(len(vocab))
+print(vocab["<UNK>"])
