@@ -145,3 +145,26 @@ def find_token_position(ranges, char_index):
     for idx, (tok, start, end) in enumerate(ranges):
         if start <= char_index < end:
             return idx
+
+
+def build_training_example(
+    question, context, answer_start, answer_text, merges, vocab
+):
+    SEP = "<SEP>"
+
+    context_ranges = build_token_ranges(context, merges)
+    answer_end = answer_start + len(answer_text) - 1
+    local_start = find_token_position(context_ranges, answer_start)
+    local_end = find_token_position(context_ranges, answer_end)
+
+    question_tokens = encode(list(question), merges)
+    context_tokens = encode(list(context), merges)
+    combined_tokens = question_tokens + [SEP] + context_tokens
+
+    offset = len(question_tokens) + 1
+    start_label = offset + local_start
+    end_label = offset + local_end
+
+    input_ids = tokens_to_id(combined_tokens, vocab)
+
+    return input_ids, start_label, end_label
