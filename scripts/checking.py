@@ -11,6 +11,7 @@ from core.tokenizer import (
     find_token_for_char,
     find_answer_span,
     build_bpe_vocab,
+    tokens_to_id,
 )
 
 train_data = json.load(open(SQUAD_TRAIN_FILE))
@@ -37,5 +38,6 @@ ranges = build_token_ranges(context, merges)
 result = find_token_for_char(ranges, 3)
 span = find_answer_span(ranges, 34, "catholic")
 vocab = build_bpe_vocab(merges, joined_text)
-print(len(vocab))
-print(vocab["<UNK>"])
+tok = tokens_to_id(tokens, vocab)
+print(len(tokens) == len(tok))
+print(tok[:10])

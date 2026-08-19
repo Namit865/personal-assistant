@@ -131,3 +131,11 @@ def build_bpe_vocab(merges, joined_text):
         idx += 1
 
     return vocab
+
+
+def tokens_to_id(tokens, vocab):
+    ids = []
+    for tok in tokens:
+        ids.append(vocab.get(tok, vocab["<UNK>"]))
+
+    return ids
