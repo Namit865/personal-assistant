@@ -139,3 +139,9 @@ def tokens_to_id(tokens, vocab):
         ids.append(vocab.get(tok, vocab["<UNK>"]))
 
     return ids
+
+
+def find_token_position(ranges, char_index):
+    for idx, (tok, start, end) in enumerate(ranges):
+        if start <= char_index < end:
+            return idx
