@@ -18,4 +18,10 @@ DATASET_FILE = DATA_DIR / "squad_train_examples.json"
 
 NUM_MERGES = 400
 
+MAX_SEQ_LEN = 512
+D_MODEL = 64
+N_HEADS = 4
+N_LAYERS = 3
+D_FF = 256
+
 MIN_FREQ = 2
