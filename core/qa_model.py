@@ -80,7 +80,16 @@ def attention(x, Wq, Wk, Wv, Wo):
 
     merged = out.transpose(1, 0, 2).reshape(T, D_MODEL)
 
-    return merged @ Wo
+    cache = {
+        "X": x,
+        "Q": Q,
+        "K": K,
+        "V": V,
+        "weights": weights,
+        "merged": merged,
+    }
+
+    return merged @ Wo, cache
 
 
 def relu(x):
@@ -89,6 +98,7 @@ def relu(x):
 
 def feed_forward(x, W1, b1, W2, b2):
     hidden = relu(x @ W1 + b1)
+    cache = {"x": x, "hidden": hidden}
     return hidden @ W2 + b2
 
 
@@ -99,53 +109,69 @@ def layernorm(x, eps=1e-8):
 
 
 def transformer_block(x, params, i):
-    attn_output = attention(
+    attn_output, attn_cache = attention(
         x,
         params[f"Wq_{i}"],
         params[f"Wk_{i}"],
         params[f"Wv_{i}"],
         params[f"Wo_{i}"],
     )
-    x = layernorm(x + attn_output)
 
-    ff_out = feed_forward(
+    norm1_input = x + attn_output
+    x = layernorm(norm1_input)
+
+    ff_out, ff_cache = feed_forward(
         x,
         params[f"W1_{i}"],
         params[f"b1_{i}"],
         params[f"W2_{i}"],
         params[f"b2_{i}"],
     )
-    x = layernorm(x + ff_out)
+    norm2_input = x + ff_out
+    x = layernorm(norm2_input)
 
-    return x
+    cache = {
+        "attn": attn_cache,
+        "ff": ff_cache,
+        "norm1_input": norm1_input,
+        "norm2_input": norm2_input,
+        "norm1_output": x,
+    }
+
+    return x, cache
 
 
 def forward(ids, params):
     x = embed(ids, params)
+    caches = []
+
     for i in range(N_LAYERS):
-        x = transformer_block(x, params, i)
+        x, block_cache = transformer_block(x, params, i)
+        caches.append(block_cache)
+
+    cache = {"ids": ids, "final_x": x, "blocks": caches}
 
     start_logits = (x @ params["W_start"]).flatten()
     end_logits = (x @ params["W_end"]).flatten()
 
-    return start_logits, end_logits
+    return start_logits, end_logits, cache
 
 
 def cross_entropy_loss(start_logits, end_logits, start_label, end_label):
     shifted = start_logits - start_logits.max()
     exp = np.exp(shifted)
-    probs = exp / exp.sum()
+    probs_start = exp / exp.sum()
 
-    assigned_probs = probs[start_label]
+    assigned_probs = probs_start[start_label]
 
     start_loss = -np.log(assigned_probs)
 
     shifted2 = end_logits - end_logits.max()
     exp2 = np.exp(shifted2)
-    probs2 = exp2 / exp2.sum()
+    probs_end = exp2 / exp2.sum()
 
-    assigned_probs2 = probs2[end_label]
+    assigned_probs2 = probs_end[end_label]
 
     end_loss = -np.log(assigned_probs2)
 
-    return (start_loss + end_loss) / 2
+    return (start_loss + end_loss) / 2, probs_start, probs_end
