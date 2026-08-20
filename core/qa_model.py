@@ -129,3 +129,23 @@ def forward(ids, params):
     end_logits = (x @ params["W_end"]).flatten()
 
     return start_logits, end_logits
+
+
+def cross_entropy_loss(start_logits, end_logits, start_label, end_label):
+    shifted = start_logits - start_logits.max()
+    exp = np.exp(shifted)
+    probs = exp / exp.sum()
+
+    assigned_probs = probs[start_label]
+
+    start_loss = -np.log(assigned_probs)
+
+    shifted2 = end_logits - end_logits.max()
+    exp2 = np.exp(shifted2)
+    probs2 = exp2 / exp2.sum()
+
+    assigned_probs2 = probs2[end_label]
+
+    end_loss = -np.log(assigned_probs2)
+
+    return (start_loss + end_loss) / 2

@@ -5,7 +5,7 @@ import json
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATASET_FILE
-from core.qa_model import init_params, embed, forward
+from core.qa_model import init_params, embed, forward, cross_entropy_loss
 
 data = json.load(open(DATASET_FILE))
 
@@ -14,4 +14,5 @@ params = init_params(888)
 example = data[0]
 start_logits, end_logits = forward(example["input_ids"], params)
 
-print(start_logits.shape, end_logits.shape)
+loss = cross_entropy_loss(start_logits, end_logits, 270, 284)
+print(loss)
