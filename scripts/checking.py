@@ -1,25 +1,17 @@
 import sys
-import json
 from pathlib import Path
+import numpy as np
+import json
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from config import DATASET_FILE
+from core.qa_model import init_params, embed, forward
 
-from config import BPE_MERGES_FILE, SQUAD_TRAIN_FILE
-from core.tokenizer import (
-    encode,
-    build_token_ranges,
-    find_token_for_char,
-    find_answer_span,
-    build_bpe_vocab,
-    tokens_to_id,
-    find_token_position,
-    build_training_example,
-)
-from core.qa_model import init_params
+data = json.load(open(DATASET_FILE))
 
 params = init_params(888)
 
-for k, v in params.items():
-    print(k, v.shape)
+example = data[0]
+start_logits, end_logits = forward(example["input_ids"], params)
 
-print("Total Entries:", len(params))
+print(start_logits.shape, end_logits.shape)
