@@ -4,7 +4,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from config import SQUAD_TRAIN_FILE, BPE_MERGES_FILE, DATASET_FILE
+from config import (
+    SQUAD_TRAIN_FILE,
+    BPE_MERGES_FILE,
+    DATASET_FILE,
+    VOCAB_QA_FILE,
+)
 
 from core.tokenizer import (
     encode,
@@ -33,6 +38,9 @@ joined_text = " ".join(all_text)
 
 vocab = build_bpe_vocab(merges, joined_text)
 vocab["<SEP>"] = len(vocab)
+
+with open(VOCAB_QA_FILE, "w") as f:
+    json.dump(vocab, f)
 
 
 dataset = []
@@ -73,5 +81,6 @@ for article in articles:
 
 with open(DATASET_FILE, "w") as f:
     json.dump(dataset, f)
+
 
 print(len(dataset), "examples,", skipped, "skipped")

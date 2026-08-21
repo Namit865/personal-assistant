@@ -6,8 +6,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from config import DATASET_FILE
+from config import DATASET_FILE, VOCAB_QA_FILE
 from core.qa_model import init_params, forward, cross_entropy_loss, backward
+
+vocab = json.load(open(VOCAB_QA_FILE))
 
 data = json.load(open(DATASET_FILE))
 ex = data[0]
