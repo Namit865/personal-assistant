@@ -298,10 +298,17 @@ def backward(cache, params, probs_start, probs_end, start_label, end_label):
 
         d_x = d_x_from_attn + d_x_skip2
 
-        grads["positional_emb"] = np.zeros_like(params["positional_emb"])
-        grads["positional_emb"][:T] = d_x
+    grads["positional_emb"] = np.zeros_like(params["positional_emb"])
+    grads["positional_emb"][:T] = d_x
 
-        grads["token_emb"] = np.zeros_like(params["token_emb"])
-        np.add.at(grads["token_emb"], cache["ids"], d_x)
+    grads["token_emb"] = np.zeros_like(params["token_emb"])
+    np.add.at(grads["token_emb"], cache["ids"], d_x)
 
     return grads
+
+
+def update_params(params, grads, lr):
+    for key in grads:
+        params[key] = params[key] - lr * grads[key]
+
+    return params
