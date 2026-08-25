@@ -62,28 +62,10 @@ def main():
     print("Write a message...")
 
     last_text = None
+    voice_mode = False
 
     while True:
-        text = input("> ").strip()
-
-        if text.startswith("!fix "):
-            label = text[5:].strip()
-            if last_text is None:
-                print("Nothing to correct")
-                continue
-
-            if label not in REGISTRY:
-                print(f"unknown label. valid: {list(REGISTRY)}")
-                continue
-
-            log_correction(CORRECTIONS_FILE, last_text, label)
-            print(f"logged: {last_text!r} -> {label}")
-            continue
-
-        if not text:
-            continue
-        
-        if text == "v":
+        if voice_mode:
             heard = listen()
             if not heard:
                 print("I didn't hear you.")
@@ -91,15 +73,39 @@ def main():
             text = heard
             print("heard:",text)
 
+            if text.lower() in ["stop", "keyboard", "stop listening", "keyboard mode", "back to keyboard mode"]:
+                voice_mode = False
+                print("Type again...")
+                continue
+
+        else:
+            text = input("> ").strip()
+            if text.startswith("!fix "):
+                label = text[5:].strip()
+                if last_text is None:
+                    print("Nothing to correct")
+                    continue
+                if label not in REGISTRY:
+                    print(f"unknown label. valid: {list(REGISTRY)}")
+                    continue
+                log_correction(CORRECTIONS_FILE, last_text, label)
+                print(f"logged: {last_text!r} -> {label}")
+                continue
+
+            if not text:
+                continue
+
+            if text == "v":
+                voice_mode = True
+                continue
+
         last_text = text
 
         label, message = process(text, vocab, label_map, w1, b1, w2, b2, context)
         print(message)
         speak(message)
-
         if label == "exit":
             break
-
         if text == "exit":
             break
 
