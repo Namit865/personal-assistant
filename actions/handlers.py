@@ -19,8 +19,8 @@ from collections import Counter
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
-from core.retrieval import clean_passage,fetch_passages
-from core.predict_qa import answer
+from core.retrieval import clean_passage,fetch_passages,fetch_answer
+
 
 FILLER = {
     "open",
@@ -79,15 +79,12 @@ def close_app(text, content):
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
                 print(f"couldn't close the {name} (pid {pid}): {e}")
 
-def knowledge_query(text,content):
-    passages = fetch_passages(text)
-    for passage in passages:
-        passage = clean_passage(passage)
-        res = answer(text,passage)
-        if res:
-            print(res)
-            return
-    print("I couldn't find the information you asked for.")
+def knowledge_query(text, content):
+    ans = fetch_answer(text)
+    if ans:
+        print(ans)
+    else:
+        print("I couldn't find the information you asked for.")
 
 def open_app(text, context):
     app_name = extract_app_name(text)
