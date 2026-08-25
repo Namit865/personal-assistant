@@ -84,8 +84,10 @@ def knowledge_query(text,content):
     for passage in passages:
         passage = clean_passage(passage)
         res = answer(text,passage)
-    return "I found the following information: " + " ".join(passages)
-
+        if res:
+            print(res)
+            return
+    print("I couldn't find the information you asked for.")
 
 def open_app(text, context):
     app_name = extract_app_name(text)

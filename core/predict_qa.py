@@ -44,3 +44,8 @@ def answer(question, passage):
 
     predicted = ids_to_text(input_ids[sp : ep + 1])
     print(f"  span=({sp},{ep})  answer: {predicted!r}")
+
+    if not any(c.isalpha() for c in predicted):
+        return None
+
+    return predicted
