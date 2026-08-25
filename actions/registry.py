@@ -6,6 +6,7 @@ from actions.handlers import (
     exit_assistant,
     unknown,
     close_app,
+    knowledge_query
 )
 
 REGISTRY = {
@@ -16,4 +17,5 @@ REGISTRY = {
     "system_status": system_status,
     "exit": exit_assistant,
     "unknown": unknown,
+    "knowledge_query" : knowledge_query
 }
