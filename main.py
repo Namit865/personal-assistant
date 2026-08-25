@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import speech_recognition as sr
+import pyttsx3
 from config import VOCAB_FILE, WEIGHTS_FILE, SEED_FILE, CORRECTIONS_FILE
 from core.classifier import predict
 from core.data_loader import load_examples, build_label_map
@@ -36,6 +37,12 @@ def listen():
         return None
     except sr.RequestError:
         return None
+
+
+def speak(message):
+    engine = pyttsx3.init()
+    engine.say(message)
+    engine.runAndWait()
 
 
 def process(text, vocab, label_map, w1, b1, w2, b2, context):
@@ -86,8 +93,9 @@ def main():
 
         last_text = text
 
-        label,message = process(text,vocab, label_map, w1, b1, w2, b2, context)
+        label, message = process(text, vocab, label_map, w1, b1, w2, b2, context)
         print(message)
+        speak(message)
 
         if label == "exit":
             break
