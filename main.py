@@ -60,7 +60,10 @@ def main():
             continue
 
         handler = REGISTRY[label]
-        handler(text, context)
+        result = handler(text, context)
+
+        if result:
+            print(result)
 
         if label == "exit":
             break

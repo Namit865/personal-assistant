@@ -70,48 +70,49 @@ def close_app(text, content):
     matches = find_matching_processes(app_name, processes)
 
     if not matches:
-        print(f"No running app called '{app_name}'")
+        return f"No running app called '{app_name}'"
     else:
         for pid, name in matches:
             try:
                 psutil.Process(pid).terminate()
-                print(f"closed {name} (pid {pid})")
+                return f"closed {name} (pid {pid})"
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
-                print(f"couldn't close the {name} (pid {pid}): {e}")
+                return f"couldn't close the {name} (pid {pid}): {e}"
 
 def knowledge_query(text, content):
     ans = fetch_answer(text)
     if ans:
-        print(ans)
+        return ans
     else:
-        print("I couldn't find the information you asked for.")
+        return "I couldn't find the information you asked for."
 
 def open_app(text, context):
     app_name = extract_app_name(text)
     result = find_app_path(app_name, context["app_index"])
     if result:
         os.startfile(result)
+        return f"opened {app_name}"
     else:
-        print(f"couldn't find an app called '{app_name}'")
+        return f"couldn't find an app called '{app_name}'"
 
 
 def web_search(text, context):
-    print(f"[web search] {text}")
     webbrowser.open(f"https://www.google.com/search?q={quote_plus(text)}")
+    return f"opened search for {text}"
 
 
 def create_note(text, context):
     notes = ROOT / "notes.txt"
     with open(notes, "a", encoding="utf-8") as f:
         f.write(f"{datetime.now():%Y-%m-%d %H:%M} | {text}\n")
-    print(f"note saved to {notes}")
+    return f"note saved to {notes}"
 
 
 def system_status(text, context):
+    lines = []
     text = text.lower()
-    print(f"[system_status] {text}")
     now = datetime.now()
-    print("Time:", now.strftime("%I:%M:%S %p"))
+    lines.append(f"Time: {now.strftime("%I:%M:%S %p")}")
     cpu = psutil.cpu_percent(interval=1)
     mem = psutil.virtual_memory()
     disk = psutil.disk_usage("/")
@@ -125,27 +126,21 @@ def system_status(text, context):
 
     if "battery" in text or "charging" in text:
         if battery:
-            print(
-                f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}"
-            )
+            lines.append(f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}")
         else:
-            print("No Battery Detected.")
+            lines.append("No Battery Detected.")
 
     if "cpu" in text:
-        print(f"Cpu Usage: {cpu}%")
+        lines.append(f"Cpu Usage: {cpu}%")
 
     if "ram" in text:
-        print(
-            f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)"
-        )
+        lines.append(f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)")
 
     if "current mode" in text or "power plan" in text:
-        print("Power Mode:", mode)
+        lines.append(f"Power Mode: {mode}")
 
     if "disk" in text:
-        print(
-            f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)"
-        )
+        lines.append(f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)")
 
     if "memory" in text:
         processes = []
@@ -160,35 +155,31 @@ def system_status(text, context):
 
         for name, mem_bytes in top_processes:
             mem_bytes = mem_bytes / 1024**2
-            print(f"Top Processes: {name} - {mem_bytes:.1f} MB")
+            lines.append(f"Top Processes: {name} - {mem_bytes:.1f} MB")
 
     if "system status" in text or "check status" in text:
         if battery:
-            print(
-                f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}"
-            )
+            lines.append(f"Battery Percent: {battery.percent} | Charging Status: {'Charging' if battery.power_plugged else 'On Battery'}")
         else:
-            print("No Battery Detected.")
+            lines.append("No Battery Detected.")
 
-        print(f"Cpu Usage: {cpu}%")
+        lines.append(f"Cpu Usage: {cpu}%")
 
-        print(
-            f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)"
-        )
-        print("Power Mode:", mode)
+        lines.append(f"RAM: {(mem.used / 1024 ** 3):.2f}/{(mem.total / 1024 ** 3):.2f} GB ({mem.percent}%)")
+        
+        lines.append(f"Power Mode: {mode}")
 
-        print(
-            f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)"
-        )
+        lines.append(f"Disk usage: {(disk.used / 1024 ** 3):.2f}/{(disk.total / 1024 ** 3):.2f} GB ({disk.percent}% Used)")
+
+    return "\n".join(lines)
 
 
 def exit_assistant(text, context):
-    print(f"[exit] {text}")
-    print("Shutting down. Goodbye!")
+    return "Shutting down. Goodbye!"
 
 
 def unknown(text, context):
-    print("I didn't understand that.")
+    return "I didn't understand that."
 
 def extract_app_name(text):
     words = tokenize(text)
