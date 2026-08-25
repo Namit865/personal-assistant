@@ -8,7 +8,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import VOCAB_QA_FILE, BPE_MERGES_FILE, MODELS_DIR
 from core.tokenizer import encode, decode, tokens_to_id
 from core.qa_model import forward, predict_span
-from core.retrieval import clean_passage
 
 weights = np.load(MODELS_DIR / "qa_weights.npz")
 params = {k: weights[k] for k in weights.files}

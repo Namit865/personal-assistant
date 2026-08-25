@@ -19,7 +19,7 @@ from collections import Counter
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
-from core.retrieval import clean_passage,fetch_passages,fetch_answer
+from core.retrieval import fetch_answer
 
 
 FILLER = {
