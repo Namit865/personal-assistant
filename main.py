@@ -1,6 +1,6 @@
 import json
 import numpy as np
-
+import speech_recognition as sr
 from config import VOCAB_FILE, WEIGHTS_FILE, SEED_FILE, CORRECTIONS_FILE
 from core.classifier import predict
 from core.data_loader import load_examples, build_label_map
@@ -23,6 +23,19 @@ def load_model():
     context = {"app_index": app_index}
 
     return vocab, label_map, w1, b1, w2, b2, context
+
+def listen():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak...")
+        audio = recognizer.listen(source)
+
+    try:
+        return recognizer.recognize_google(audio)
+    except sr.UnknownValueError:
+        return None
+    except sr.RequestError:
+        return None
 
 
 def process(text, vocab, label_map, w1, b1, w2, b2, context):
@@ -62,6 +75,14 @@ def main():
 
         if not text:
             continue
+        
+        if text == "v":
+            heard = listen()
+            if not heard:
+                print("I didn't hear you.")
+                continue
+            text = heard
+            print("heard:",text)
 
         last_text = text
 
