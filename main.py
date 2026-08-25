@@ -28,13 +28,13 @@ def load_model():
 def process(text, vocab, label_map, w1, b1, w2, b2, context):
     label,confidence = predict(text, vocab, label_map, w1, b1, w2, b2)
     if confidence < THRESHOLD:
-        print("Uncertainity")
-        return None
-    
-    result = REGISTRY[label](text,context)
+        return None, "Uncertainity"
+
+    result = REGISTRY[label](text, context)
     if result:
-        print(result)
-    return label
+        return label, result
+    
+    return label,"I didn't understand that."
 
 
 def main():
@@ -65,7 +65,8 @@ def main():
 
         last_text = text
 
-        label = process(text,vocab, label_map, w1, b1, w2, b2, context)
+        label,message = process(text,vocab, label_map, w1, b1, w2, b2, context)
+        print(message)
 
         if label == "exit":
             break
