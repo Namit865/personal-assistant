@@ -1997,7 +1997,7 @@
   },
   {
     "text": "what's the meaning of life",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "asdfgh",
@@ -2009,7 +2009,7 @@
   },
   {
     "text": "who won the world cup",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "hello",
@@ -2237,87 +2237,87 @@
   },
   {
     "text": "who is the prime minister of india",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "who is the president of the united states",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how many countries are in Africa",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the speed of sound",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how far away is Mars",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "why is the sky blue",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how do airplanes fly",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what causes earthquakes",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "explain quantum physics simply",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "who wrote Romeo and Juliet",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "when did world war 2 end",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the capital of France",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how many people live on earth",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the largest ocean",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "who discovered electricity",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "when was the internet invented",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the tallest building in the world",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "who directed the movie Inception",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the formula for water",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how many bones are in the human body",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "is there life after death",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "do aliens exist",
@@ -2325,7 +2325,7 @@
   },
   {
     "text": "what happens if an unstoppable force meets an immovable object",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "which came first the chicken or the egg",
@@ -2333,11 +2333,11 @@
   },
   {
     "text": "is time travel possible",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is the nature of reality",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "do we have free will",
@@ -2345,15 +2345,15 @@
   },
   {
     "text": "what is the definition of consciousness",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "why do bad things happen to good people",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what is love",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "can money buy happiness",
@@ -2361,19 +2361,19 @@
   },
   {
     "text": "what is the secret to success",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "how do I find my purpose",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "is universe infinite",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "what lies at the bottom of a black hole",
-    "intent": "unknown"
+    "intent": "knowledge_query"
   },
   {
     "text": "play chess with me",
@@ -3090,5 +3090,409 @@
   {
     "text": "deactivate yourself now",
     "intent": "exit"
+  },
+  {
+    "text": "what is the capital of Japan",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Germany",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Italy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Canada",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented the telephone",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented the light bulb",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who painted the Mona Lisa",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote Hamlet",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote the Odyssey",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when did world war 1 start",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was the moon landing",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was the printing press invented",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how tall is Mount Everest",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how deep is the Mariana Trench",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how fast does light travel",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the boiling point of water",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the chemical symbol for gold",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the largest planet in the solar system",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the smallest country in the world",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the longest river in the world",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes lightning",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes volcanoes to erupt",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why do leaves change color",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why is the ocean salty",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does photosynthesis work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does a refrigerator work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "explain gravity simply",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "explain black holes simply",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define photosynthesis",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define democracy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define inflation",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what does DNA stand for",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what does CPU stand for",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who discovered penicillin",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who developed the theory of relativity",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where is the Great Barrier Reef",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where is the Sahara desert",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many continents are there",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many planets are in the solar system",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what year did the Titanic sink",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what language is spoken in Brazil",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the currency of Japan",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the population of India",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the highest mountain in Africa",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was the first person on the moon",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was Cleopatra",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the speed of light",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is absolute zero",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is pi approximately",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how old is the Earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how large is the Milky Way",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is a neutron star",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is an eclipse",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the greenhouse effect",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes the seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why do we have seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do vaccines work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does the internet work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is machine learning",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is climate change",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who founded Microsoft",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who founded Apple",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was Python created",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the Pythagorean theorem",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the circumference of Earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the distance to the sun",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many elements are on the periodic table",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the hardest natural substance",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what animal is the largest on earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what bird cannot fly",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where do penguins live",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Australia",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the official language of China",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who composed the Four Seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who sculpted David",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when did the Roman Empire fall",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what caused the French Revolution",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the Magna Carta",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was Albert Einstein",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what did Marie Curie discover",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do magnets work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is electricity",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is an atom made of",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the water cycle",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why does iron rust",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the ozone layer",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how far is the moon from earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is a black hole",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define entropy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the meaning of photosynthesis",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented calculus",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the largest desert",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the smallest ocean",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many teeth does an adult human have",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what blood type is the universal donor",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the normal human body temperature",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote Pride and Prejudice",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who painted Starry Night",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the boiling point of nitrogen",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what gas do plants absorb",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what gas do humans exhale",
+    "intent": "knowledge_query"
   }
 ]

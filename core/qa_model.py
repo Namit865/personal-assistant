@@ -312,3 +312,46 @@ def update_params(params, grads, lr):
         params[key] = params[key] - lr * grads[key]
 
     return params
+
+
+def predict_span(start_logits, end_logits, max_answer_len=30,offset = 0):
+    T = len(start_logits)
+    scores = start_logits[:, None] + end_logits[None, :]
+
+    mask = np.triu(np.ones((T, T), dtype=bool))
+    span_len = np.arange(T)[None, :] - np.arange(T)[:, None]
+    mask &= span_len < max_answer_len
+    mask &= np.arange(T)[None, :] >= offset
+    mask &= np.arange(T)[:,None] >= offset
+
+    masked_scores = np.where(mask, scores, -np.inf)
+    best = np.argmax(masked_scores)
+    return np.unravel_index(best, masked_scores.shape)
+
+
+def init_adam_state(params):
+    return {
+        "m": {k: np.zeros_like(v) for k, v in params.items()},
+        "v": {k: np.zeros_like(v) for k, v in params.items()},
+        "t": 0,
+    }
+
+
+def adam_update(
+    params, grads, opt_state, lr=0.001, beta1=0.9, beta2=0.999, eps=1e-8
+):
+    opt_state["t"] += 1
+    t = opt_state["t"]
+
+    for k in grads:
+        opt_state["m"][k] = beta1 * opt_state["m"][k] + (1 - beta1) * grads[k]
+        opt_state["v"][k] = beta2 * opt_state["v"][k] + (1 - beta2) * (
+            grads[k] ** 2
+        )
+
+        m_hat = opt_state["m"][k] / (1 - beta1**t)
+        v_hat = opt_state["v"][k] / (1 - beta2**t)
+
+        params[k] = params[k] - lr * m_hat / (np.sqrt(v_hat) + eps)
+
+    return params, opt_state
