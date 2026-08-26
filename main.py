@@ -8,6 +8,8 @@ from core.data_loader import load_examples, build_label_map
 from actions.registry import REGISTRY
 from memory.corrections import log_correction
 from actions.app_finder import build_app_index
+import time
+
 
 THRESHOLD = 0.6
 
@@ -29,7 +31,11 @@ def listen():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         print("Speak...")
-        audio = recognizer.listen(source)
+        recognizer.adjust_for_ambient_noise(source,duration=0.5)
+        try:
+            audio = recognizer.listen(source)
+        except sr.WaitTimeoutError as e:
+            return None
 
     try:
         return recognizer.recognize_google(audio)
@@ -104,6 +110,8 @@ def main():
         label, message = process(text, vocab, label_map, w1, b1, w2, b2, context)
         print(message)
         speak(message)
+        if voice_mode:
+            time.sleep(1)
         if label == "exit":
             break
         if text == "exit":
