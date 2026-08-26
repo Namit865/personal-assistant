@@ -167,6 +167,13 @@ personal-assistant/
 
 ## Where this is going
 
+**North star (product):** a **local Windows agent** — speak or type → tools act on *this* PC → clear “done” message (print + speak). Later: stay inside an app, find files by name, run longer research in the background, remember preferences. **Not** “pretrain an unrestricted general LLM alone on one machine.”
+
+**Lab vs product**
+
+- **Lab / portfolio (frozen):** NumPy classifier, hand gradients, BPE, Stage 1 span QA. Keep the code; do not block the agent on more SQuAD training.
+- **Product path (active):** intents + handlers + slots + voice already in `main`; next facilities are **tools and jobs**, optionally a **borrowed** local chat model later — not training a frontier net from scratch.
+
 **Done for the assistant product path**
 
 - [x] Eight intents including `knowledge_query` via Tavily answer
@@ -177,14 +184,16 @@ personal-assistant/
 - [x] Web search opens in Chrome via `chrome.exe` (not OS default / not `.lnk` + `Popen`)
 - [x] Stage 1 transformer lab (trained, parked off `main`)
 
-**Next (still command/slots, not vision)**
+**Next facility (in progress): Files**
 
-- [ ] Optional: Windows reminders / notifications (separate from file notes)
+- [ ] Search chosen folders by filename and open / select in Explorer (no vision)
+- [ ] Optional: Windows reminders / notifications
 - [ ] Optional: local STT so voice does not depend on Google
-- [ ] Richer multi-part sentences beyond a single ` and `
-- [ ] Screen / UI vision only when command + slots are solid
+- [ ] Browser session (“in Chrome, do …”) after Files works
+- [ ] Screen / UI vision only when tools are not enough
 
 **Parked (lab, not product blockers)**
 
 - [ ] Improve Stage 1 span EM (optional experiment)
 - [ ] Stage 2 generative fusion — deliberately off the critical path
+- [ ] Solo pretraining of an unrestricted general model — out of scope for this repo’s product path
