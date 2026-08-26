@@ -21,10 +21,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from core.text_utils import tokenize
 from core.retrieval import fetch_answer
 
-SEARCH_FILLER = {
-    "search","google","web","look","find","browse","search for","google for","web for","for"
-}
-
 FILLER = {
     "open",
     "launch",
@@ -63,6 +59,27 @@ FILLER = {
     "need",
     "i",
     "to",
+}
+
+SEARCH_FILLER = FILLER | {
+    "search","google","web","look","find","browse","search for","google for","web for","for"
+}
+
+NOTE_FILLERS = FILLER | {
+    "note",
+    "notes",
+    "remember",
+    "remind",
+    "write",
+    "down",
+    "take",
+    "make",
+    "add",
+    "create",
+    "new",
+    "saying",
+    "about",
+    "that",
 }
 
 
@@ -114,10 +131,11 @@ def web_search(text, context):
     return f"opened search for {clean_query}"
 
 def create_note(text, context):
+    body = extract_note_body(text)
     notes = ROOT / "notes.txt"
     with open(notes, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now():%Y-%m-%d %H:%M} | {text}\n")
-    return f"note saved to {notes}"
+        f.write(f"{datetime.now():%Y-%m-%d %H:%M} | {body}\n")
+    return f"note saved to {body}"
 
 
 def system_status(text, context):
@@ -208,6 +226,14 @@ def extract_app_name(text):
 def extract_search_query(text):
     words = tokenize(text)
     kept = [w for w in words if w not in SEARCH_FILLER]
+    if not kept:
+        return text
+    
+    return " ".join(kept)
+
+def extract_note_body(text):
+    words = tokenize(text)
+    kept = [w for w in words if w not in NOTE_FILLERS]
     if not kept:
         return text
     
