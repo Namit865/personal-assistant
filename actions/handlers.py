@@ -20,6 +20,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
 from core.retrieval import fetch_answer
+from actions.file_finder import find_files,open_file
+
 
 FILLER = {
     "open",
@@ -64,6 +66,9 @@ FILLER = {
 SEARCH_FILLER = FILLER | {
     "search","google","web","look","find","browse","search for","google for","web for","for"
 }
+
+FILE_FILLER = FILLER | {"file", "files", "document", "documents", "folder", "show", "find", "locate"}
+
 
 NOTE_FILLERS = FILLER | {
     "note",
@@ -255,3 +260,20 @@ def extract_note_body(text):
         return text
     
     return " ".join(kept)
+
+def extract_file_name(text):
+    words = tokenize(text)
+    kept = [w for w in words if w not in FILE_FILLER]
+    if not kept:
+        return text
+    return " ".join(kept)
+
+
+def open_path(text, context):
+    name = extract_file_name(text)
+    hits = find_files(name)
+    if not hits:
+        return f"couldn't find a file like '{name}'"
+    path = hits[0]
+    open_file(path)
+    return f"found {path.name}"

@@ -1,0 +1,3698 @@
+[
+  {
+    "text": "open chrome",
+    "intent": "open_app"
+  },
+  {
+    "text": "launch spotify",
+    "intent": "open_app"
+  },
+  {
+    "text": "fireup discord",
+    "intent": "open_app"
+  },
+  {
+    "text": "start whatsapp",
+    "intent": "open_app"
+  },
+  {
+    "text": "run vlc",
+    "intent": "open_app"
+  },
+  {
+    "text": "boot up steam",
+    "intent": "open_app"
+  },
+  {
+    "text": "initialize photoshop",
+    "intent": "open_app"
+  },
+  {
+    "text": "trigger premiere",
+    "intent": "open_app"
+  },
+  {
+    "text": "load zoom",
+    "intent": "open_app"
+  },
+  {
+    "text": "bring up slack",
+    "intent": "open_app"
+  },
+  {
+    "text": "pull up notepad",
+    "intent": "open_app"
+  },
+  {
+    "text": "load up excel",
+    "intent": "open_app"
+  },
+  {
+    "text": "turn on word",
+    "intent": "open_app"
+  },
+  {
+    "text": "get powerpoint going",
+    "intent": "open_app"
+  },
+  {
+    "text": "wake up terminal",
+    "intent": "open_app"
+  },
+  {
+    "text": "pop open vscode",
+    "intent": "open_app"
+  },
+  {
+    "text": "crank up calculator",
+    "intent": "open_app"
+  },
+  {
+    "text": "please open edge",
+    "intent": "open_app"
+  },
+  {
+    "text": "can you launch safari",
+    "intent": "open_app"
+  },
+  {
+    "text": "could you start firefox for me",
+    "intent": "open_app"
+  },
+  {
+    "text": "i need you to run opera",
+    "intent": "open_app"
+  },
+  {
+    "text": "would you mind pulling up brave",
+    "intent": "open_app"
+  },
+  {
+    "text": "open a new window in tor",
+    "intent": "open_app"
+  },
+  {
+    "text": "start a meeting on teams",
+    "intent": "open_app"
+  },
+  {
+    "text": "check my messages on messenger",
+    "intent": "open_app"
+  },
+  {
+    "text": "write a document using notepad++",
+    "intent": "open_app"
+  },
+  {
+    "text": "play some music on apple music",
+    "intent": "open_app"
+  },
+  {
+    "text": "open postman",
+    "intent": "open_app"
+  },
+  {
+    "text": "launch docker",
+    "intent": "open_app"
+  },
+  {
+    "text": "fireup git bash",
+    "intent": "open_app"
+  },
+  {
+    "text": "start command prompt",
+    "intent": "open_app"
+  },
+  {
+    "text": "run powershell",
+    "intent": "open_app"
+  },
+  {
+    "text": "boot up intellij",
+    "intent": "open_app"
+  },
+  {
+    "text": "initialize eclipse",
+    "intent": "open_app"
+  },
+  {
+    "text": "trigger pycharm",
+    "intent": "open_app"
+  },
+  {
+    "text": "load sublime text",
+    "intent": "open_app"
+  },
+  {
+    "text": "bring up atom",
+    "intent": "open_app"
+  },
+  {
+    "text": "pull up obsidian",
+    "intent": "open_app"
+  },
+  {
+    "text": "load up notion",
+    "intent": "open_app"
+  },
+  {
+    "text": "turn on evernote",
+    "intent": "open_app"
+  },
+  {
+    "text": "get trello going",
+    "intent": "open_app"
+  },
+  {
+    "text": "wake up asana",
+    "intent": "open_app"
+  },
+  {
+    "text": "pop open jira",
+    "intent": "open_app"
+  },
+  {
+    "text": "crank up clickup",
+    "intent": "open_app"
+  },
+  {
+    "text": "please open linear",
+    "intent": "open_app"
+  },
+  {
+    "text": "can you launch figma",
+    "intent": "open_app"
+  },
+  {
+    "text": "could you start canva for me",
+    "intent": "open_app"
+  },
+  {
+    "text": "i need you to run illustrator",
+    "intent": "open_app"
+  },
+  {
+    "text": "would you mind pulling up indesign",
+    "intent": "open_app"
+  },
+  {
+    "text": "open lightroom",
+    "intent": "open_app"
+  },
+  {
+    "text": "launch blender",
+    "intent": "open_app"
+  },
+  {
+    "text": "fireup unity",
+    "intent": "open_app"
+  },
+  {
+    "text": "start unreal engine",
+    "intent": "open_app"
+  },
+  {
+    "text": "run obs studio",
+    "intent": "open_app"
+  },
+  {
+    "text": "boot up audacity",
+    "intent": "open_app"
+  },
+  {
+    "text": "initialize fl studio",
+    "intent": "open_app"
+  },
+  {
+    "text": "trigger ableton",
+    "intent": "open_app"
+  },
+  {
+    "text": "load pro tools",
+    "intent": "open_app"
+  },
+  {
+    "text": "bring up logic pro",
+    "intent": "open_app"
+  },
+  {
+    "text": "pull up final cut",
+    "intent": "open_app"
+  },
+  {
+    "text": "load up davinci resolve",
+    "intent": "open_app"
+  },
+  {
+    "text": "turn on cyberduck",
+    "intent": "open_app"
+  },
+  {
+    "text": "get filezilla going",
+    "intent": "open_app"
+  },
+  {
+    "text": "wake up putty",
+    "intent": "open_app"
+  },
+  {
+    "text": "pop open winrar",
+    "intent": "open_app"
+  },
+  {
+    "text": "crank up 7zip",
+    "intent": "open_app"
+  },
+  {
+    "text": "please open utorrent",
+    "intent": "open_app"
+  },
+  {
+    "text": "can you launch qbittorrent",
+    "intent": "open_app"
+  },
+  {
+    "text": "could you start skype for me",
+    "intent": "open_app"
+  },
+  {
+    "text": "i need you to run telegram",
+    "intent": "open_app"
+  },
+  {
+    "text": "would you mind pulling up signal",
+    "intent": "open_app"
+  },
+  {
+    "text": "open viber",
+    "intent": "open_app"
+  },
+  {
+    "text": "launch line",
+    "intent": "open_app"
+  },
+  {
+    "text": "fireup wechat",
+    "intent": "open_app"
+  },
+  {
+    "text": "start epic games launcher",
+    "intent": "open_app"
+  },
+  {
+    "text": "run origin",
+    "intent": "open_app"
+  },
+  {
+    "text": "boot up uplay",
+    "intent": "open_app"
+  },
+  {
+    "text": "initialize gog galaxy",
+    "intent": "open_app"
+  },
+  {
+    "text": "trigger battlenet",
+    "intent": "open_app"
+  },
+  {
+    "text": "load riot client",
+    "intent": "open_app"
+  },
+  {
+    "text": "bring up minecraft",
+    "intent": "open_app"
+  },
+  {
+    "text": "pull up roblox",
+    "intent": "open_app"
+  },
+  {
+    "text": "load up discord canary",
+    "intent": "open_app"
+  },
+  {
+    "text": "turn on thunderbird",
+    "intent": "open_app"
+  },
+  {
+    "text": "get outlook going",
+    "intent": "open_app"
+  },
+  {
+    "text": "wake up mailbird",
+    "intent": "open_app"
+  },
+  {
+    "text": "pop open foxmail",
+    "intent": "open_app"
+  },
+  {
+    "text": "crank up eM client",
+    "intent": "open_app"
+  },
+  {
+    "text": "please open onenote",
+    "intent": "open_app"
+  },
+  {
+    "text": "can you launch google keep",
+    "intent": "open_app"
+  },
+  {
+    "text": "could you start todoist for me",
+    "intent": "open_app"
+  },
+  {
+    "text": "i need you to run ticktick",
+    "intent": "open_app"
+  },
+  {
+    "text": "would you mind pulling up anydo",
+    "intent": "open_app"
+  },
+  {
+    "text": "open microsoft to do",
+    "intent": "open_app"
+  },
+  {
+    "text": "launch habitica",
+    "intent": "open_app"
+  },
+  {
+    "text": "fireup toggl Track",
+    "intent": "open_app"
+  },
+  {
+    "text": "start clockify",
+    "intent": "open_app"
+  },
+  {
+    "text": "run harvest",
+    "intent": "open_app"
+  },
+  {
+    "text": "boot up rescueTime",
+    "intent": "open_app"
+  },
+  {
+    "text": "initialize focusmate",
+    "intent": "open_app"
+  },
+  {
+    "text": "search for the nearest coffee shop",
+    "intent": "web_search"
+  },
+  {
+    "text": "google how to cook pasta",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up python tutorials for beginners",
+    "intent": "web_search"
+  },
+  {
+    "text": "find information on climate change",
+    "intent": "web_search"
+  },
+  {
+    "text": "query the latest tech news",
+    "intent": "web_search"
+  },
+  {
+    "text": "search the web for apple stock price",
+    "intent": "web_search"
+  },
+  {
+    "text": "can you search how tall is Mount Everest",
+    "intent": "web_search"
+  },
+  {
+    "text": "do a quick search for best budget smartphones",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for flights from New York to London",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a search for local weather updates",
+    "intent": "web_search"
+  },
+  {
+    "text": "check online for the meaning of serendipity",
+    "intent": "web_search"
+  },
+  {
+    "text": "find out when the next solar eclipse is",
+    "intent": "web_search"
+  },
+  {
+    "text": "google the recipe for chocolate chip cookies",
+    "intent": "web_search"
+  },
+  {
+    "text": "search up historical events in 1920",
+    "intent": "web_search"
+  },
+  {
+    "text": "pull up information on the Roman Empire",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up reviews for the new electric car",
+    "intent": "web_search"
+  },
+  {
+    "text": "browse for affordable running shoes",
+    "intent": "web_search"
+  },
+  {
+    "text": "give me search results for how to fix a leaky faucet",
+    "intent": "web_search"
+  },
+  {
+    "text": "could you find some articles on machine learning",
+    "intent": "web_search"
+  },
+  {
+    "text": "i need to search for top travel destinations",
+    "intent": "web_search"
+  },
+  {
+    "text": "please search for a good dentist near me",
+    "intent": "web_search"
+  },
+  {
+    "text": "search the internet for data science jobs",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up the population of Tokyo",
+    "intent": "web_search"
+  },
+  {
+    "text": "find the release date of the next superhero movie",
+    "intent": "web_search"
+  },
+  {
+    "text": "google who won the football match yesterday",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a web search on quantum computing basics",
+    "intent": "web_search"
+  },
+  {
+    "text": "check the web for simple breakfast ideas",
+    "intent": "web_search"
+  },
+  {
+    "text": "do a search for history of video games",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for a nearby grocery store open now",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for symptoms of a common cold",
+    "intent": "web_search"
+  },
+  {
+    "text": "query the dynamic programming tutorials",
+    "intent": "web_search"
+  },
+  {
+    "text": "find out how far the moon is from earth",
+    "intent": "web_search"
+  },
+  {
+    "text": "google best ways to learn spanish fast",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up current inflation rates",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for coding challenges websites",
+    "intent": "web_search"
+  },
+  {
+    "text": "can you google the capital of Australia",
+    "intent": "web_search"
+  },
+  {
+    "text": "find some images of a red panda",
+    "intent": "web_search"
+  },
+  {
+    "text": "search online for top artificial intelligence trends",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up how to change a car tire",
+    "intent": "web_search"
+  },
+  {
+    "text": "browse the web for diy home decor ideas",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a quick search for best laptop under a thousand dollars",
+    "intent": "web_search"
+  },
+  {
+    "text": "do an online search for a core workout routine",
+    "intent": "web_search"
+  },
+  {
+    "text": "check google for premier league standings",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for the opening hours of the museum",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for a comparison between ios and android",
+    "intent": "web_search"
+  },
+  {
+    "text": "find documentation on docker compose",
+    "intent": "web_search"
+  },
+  {
+    "text": "query the average salary of a software engineer",
+    "intent": "web_search"
+  },
+  {
+    "text": "google tips for public speaking",
+    "intent": "web_search"
+  },
+  {
+    "text": "search up the plot summary of macbeth",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up instructions to build a wooden desk",
+    "intent": "web_search"
+  },
+  {
+    "text": "find information about the deep ocean",
+    "intent": "web_search"
+  },
+  {
+    "text": "search the web for cat training tips",
+    "intent": "web_search"
+  },
+  {
+    "text": "could you look up best places to hike in the fall",
+    "intent": "web_search"
+  },
+  {
+    "text": "please query how to write a formal email",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a web search on photography techniques for beginners",
+    "intent": "web_search"
+  },
+  {
+    "text": "do a quick search for top books to read this year",
+    "intent": "web_search"
+  },
+  {
+    "text": "check the web for space exploration milestones",
+    "intent": "web_search"
+  },
+  {
+    "text": "google the distance between Paris and Berlin",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up definition of macroeconomics",
+    "intent": "web_search"
+  },
+  {
+    "text": "find out how to start a small business online",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for healthy meal prep ideas for the week",
+    "intent": "web_search"
+  },
+  {
+    "text": "can you look for a hotel in downtown Chicago",
+    "intent": "web_search"
+  },
+  {
+    "text": "search online for common idioms and meanings",
+    "intent": "web_search"
+  },
+  {
+    "text": "query the benefits of drinking green tea",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up the shortcut keys for photoshop",
+    "intent": "web_search"
+  },
+  {
+    "text": "browse for mechanical keyboard reviews",
+    "intent": "web_search"
+  },
+  {
+    "text": "google the history of jazz music",
+    "intent": "web_search"
+  },
+  {
+    "text": "find out what causes a rainbow",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for the best mechanical pencil for drawing",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a quick search for local concert events",
+    "intent": "web_search"
+  },
+  {
+    "text": "check google for tips on staying focused while studying",
+    "intent": "web_search"
+  },
+  {
+    "text": "do an online search for ancient architecture styles",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up the best way to clean a keyboard",
+    "intent": "web_search"
+  },
+  {
+    "text": "search up when git was invented",
+    "intent": "web_search"
+  },
+  {
+    "text": "find reviews for the latest sci-fi novel",
+    "intent": "web_search"
+  },
+  {
+    "text": "google what is the speed of light",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for a map of the subway system",
+    "intent": "web_search"
+  },
+  {
+    "text": "search the web for standard guitar tuning instructions",
+    "intent": "web_search"
+  },
+  {
+    "text": "could you query the side effects of caffeine",
+    "intent": "web_search"
+  },
+  {
+    "text": "please search for a guide on urban gardening",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a search on the difference between proof and evidence",
+    "intent": "web_search"
+  },
+  {
+    "text": "check online for upcoming movie trailers",
+    "intent": "web_search"
+  },
+  {
+    "text": "do a search for standard time zones map",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up how an electric motor works",
+    "intent": "web_search"
+  },
+  {
+    "text": "find out who painted the starry night",
+    "intent": "web_search"
+  },
+  {
+    "text": "google creative writing prompts for daily practice",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for a free video editor software",
+    "intent": "web_search"
+  },
+  {
+    "text": "can you search up the rules of chess",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for an easy guide to meditation",
+    "intent": "web_search"
+  },
+  {
+    "text": "query the ingredients needed for sourdough bread",
+    "intent": "web_search"
+  },
+  {
+    "text": "search online for local farmers markets schedules",
+    "intent": "web_search"
+  },
+  {
+    "text": "find information on how barcodes work",
+    "intent": "web_search"
+  },
+  {
+    "text": "google the timeline of the space race",
+    "intent": "web_search"
+  },
+  {
+    "text": "look up how to improve typing speed",
+    "intent": "web_search"
+  },
+  {
+    "text": "browse the web for ergonomic office chair options",
+    "intent": "web_search"
+  },
+  {
+    "text": "run a search for best practices in web design",
+    "intent": "web_search"
+  },
+  {
+    "text": "check google for a basic overview of cryptography",
+    "intent": "web_search"
+  },
+  {
+    "text": "do a quick search for ways to reduce stress at work",
+    "intent": "web_search"
+  },
+  {
+    "text": "look for the origin story of the internet",
+    "intent": "web_search"
+  },
+  {
+    "text": "search for beginner exercises for core strength",
+    "intent": "web_search"
+  },
+  {
+    "text": "note down that I need to buy milk tomorrow",
+    "intent": "create_note"
+  },
+  {
+    "text": "write down the ideas from today's meeting",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a note about the project deadline extension",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a note to call Sarah at 5pm",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down this address real quick",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a note saying the password was changed",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a new note for my grocery list",
+    "intent": "create_note"
+  },
+  {
+    "text": "save a note about the car rental confirmation number",
+    "intent": "create_note"
+  },
+  {
+    "text": "remember to note that the flight leaves at midnight",
+    "intent": "create_note"
+  },
+  {
+    "text": "put this in my notes: buy batteries",
+    "intent": "create_note"
+  },
+  {
+    "text": "can you take down a note about the presentation feedback",
+    "intent": "create_note"
+  },
+  {
+    "text": "please write this down in my notebook",
+    "intent": "create_note"
+  },
+  {
+    "text": "i need to jot down a quick thought about my book plot",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you make a note of the Wi-Fi password here",
+    "intent": "create_note"
+  },
+  {
+    "text": "note that the office is closed on Monday",
+    "intent": "create_note"
+  },
+  {
+    "text": "open a new note and type call the landlord",
+    "intent": "create_note"
+  },
+  {
+    "text": "keep a record of these serial numbers in my notes",
+    "intent": "create_note"
+  },
+  {
+    "text": "scribble down these directions to the venue",
+    "intent": "create_note"
+  },
+  {
+    "text": "log a note about my workout routine today",
+    "intent": "create_note"
+  },
+  {
+    "text": "document this bug description in my notes",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a memo for the upcoming family dinner details",
+    "intent": "create_note"
+  },
+  {
+    "text": "write a note to remind me about the insurance renewal",
+    "intent": "create_note"
+  },
+  {
+    "text": "add to my notes that John prefers tea over coffee",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a quick memo on the marketing budget changes",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot this down: dentist appointment is on Tuesday",
+    "intent": "create_note"
+  },
+  {
+    "text": "save this text as a new note",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a mental note and type it down: fix the front door lock",
+    "intent": "create_note"
+  },
+  {
+    "text": "note down that the client wants a revision by Friday",
+    "intent": "create_note"
+  },
+  {
+    "text": "put down in writing that the deposit is fully refundable",
+    "intent": "create_note"
+  },
+  {
+    "text": "start a new text note for holiday gift ideas",
+    "intent": "create_note"
+  },
+  {
+    "text": "can you document that the electricity bill is already paid",
+    "intent": "create_note"
+  },
+  {
+    "text": "please take a note of the plumber's phone number",
+    "intent": "create_note"
+  },
+  {
+    "text": "i want to note down my weight tracking for this week",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you jot down a recipe reminder for lasagna",
+    "intent": "create_note"
+  },
+  {
+    "text": "note down that we need to pack the passports",
+    "intent": "create_note"
+  },
+  {
+    "text": "write down the dimensions of the living room couch",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a note of the museum opening hours we looked up",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a quick note about the oil change mileage",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down that the gym membership expires next month",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a fresh note for brainstorming app feature ideas",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a note titled packing list for camping",
+    "intent": "create_note"
+  },
+  {
+    "text": "save a quick note: check out the new sci-fi movie",
+    "intent": "create_note"
+  },
+  {
+    "text": "put this in a note for me: conference code is 4432",
+    "intent": "create_note"
+  },
+  {
+    "text": "take down a memo regarding the new remote work policy",
+    "intent": "create_note"
+  },
+  {
+    "text": "please write down that I owe Mike twenty dollars",
+    "intent": "create_note"
+  },
+  {
+    "text": "i need to make a note about the veterinary checkup date",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you log a note detailing the software version used",
+    "intent": "create_note"
+  },
+  {
+    "text": "note that the final exam starts at exactly nine am",
+    "intent": "create_note"
+  },
+  {
+    "text": "scribble a note about buying birthday decorations",
+    "intent": "create_note"
+  },
+  {
+    "text": "write this down real quick: meeting ID is zero nine eight",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a note to water the plants every three days",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a note that the library books are due back tomorrow",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down a list of things to bring to the beach",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a note about the restaurant recommendation from Alex",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a quick memo: pick up dry cleaning before six",
+    "intent": "create_note"
+  },
+  {
+    "text": "save a text note for daily affirmations",
+    "intent": "create_note"
+  },
+  {
+    "text": "put down in my notes that the tracking code is active",
+    "intent": "create_note"
+  },
+  {
+    "text": "can you note down that the gate code is sharp eighty eight",
+    "intent": "create_note"
+  },
+  {
+    "text": "please take a note about buying new running shoes",
+    "intent": "create_note"
+  },
+  {
+    "text": "i want to write down my thoughts on this book chapter",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you jot down that the package requires a signature",
+    "intent": "create_note"
+  },
+  {
+    "text": "note down the serial key for the video editor",
+    "intent": "create_note"
+  },
+  {
+    "text": "write down that the hotel check-in time is at three pm",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a note to review the contract terms tonight",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a note about the coupon code for twenty percent off",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down that the museum is closed on national holidays",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a quick note for video game level strategies",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a note tracking my monthly water intake goals",
+    "intent": "create_note"
+  },
+  {
+    "text": "save this observation as a note in my account",
+    "intent": "create_note"
+  },
+  {
+    "text": "put this details into a new note for me",
+    "intent": "create_note"
+  },
+  {
+    "text": "take down a short note detailing the car sounds",
+    "intent": "create_note"
+  },
+  {
+    "text": "please note that the coupon expires by midnight tonight",
+    "intent": "create_note"
+  },
+  {
+    "text": "i need to scribble down the brand of this printer ink",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you write down that the interview is moved to Zoom",
+    "intent": "create_note"
+  },
+  {
+    "text": "note that I should try the seafood pasta next time",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a note of the exact coordinates for the trailhead",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down that the package was delivered to the neighbour",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a note about the dimensions for the window blinds",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a memo for tracking plant growth measurements",
+    "intent": "create_note"
+  },
+  {
+    "text": "save a note with the reference number for customer support",
+    "intent": "create_note"
+  },
+  {
+    "text": "put down that I need to back up my hard drive",
+    "intent": "create_note"
+  },
+  {
+    "text": "can you note down that the pool opens in May",
+    "intent": "create_note"
+  },
+  {
+    "text": "please take a note about the feedback on layout design",
+    "intent": "create_note"
+  },
+  {
+    "text": "i want to write down the name of that catch song",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you jot down the recommended pressure for car tires",
+    "intent": "create_note"
+  },
+  {
+    "text": "note down that the doctor changed the prescription dose",
+    "intent": "create_note"
+  },
+  {
+    "text": "write down a reminder to buy printer paper soon",
+    "intent": "create_note"
+  },
+  {
+    "text": "take a note of the total cost for the event catering",
+    "intent": "create_note"
+  },
+  {
+    "text": "make a quick note that the garbage pickup is delayed",
+    "intent": "create_note"
+  },
+  {
+    "text": "jot down the name of the tour guide we liked",
+    "intent": "create_note"
+  },
+  {
+    "text": "add a note tracking my guitar practice hours this week",
+    "intent": "create_note"
+  },
+  {
+    "text": "create a note with the ingredients for the green smoothie",
+    "intent": "create_note"
+  },
+  {
+    "text": "save a quick memo about changing the smoke detector batteries",
+    "intent": "create_note"
+  },
+  {
+    "text": "put this list of interview prep topics into a note",
+    "intent": "create_note"
+  },
+  {
+    "text": "take down a note regarding the holiday bonus structure",
+    "intent": "create_note"
+  },
+  {
+    "text": "please write down that the store does not take cash",
+    "intent": "create_note"
+  },
+  {
+    "text": "i need to make a note about the office parking spot rule",
+    "intent": "create_note"
+  },
+  {
+    "text": "could you log a note detailing the grocery store items needed",
+    "intent": "create_note"
+  },
+  {
+    "text": "note that the museum tour starts on the lower level",
+    "intent": "create_note"
+  },
+  {
+    "text": "scribble a note about getting the car washed before the trip",
+    "intent": "create_note"
+  },
+  {
+    "text": "check system status",
+    "intent": "system_status"
+  },
+  {
+    "text": "how is my computer running",
+    "intent": "system_status"
+  },
+  {
+    "text": "show system performance metrics",
+    "intent": "system_status"
+  },
+  {
+    "text": "what is my current cpu usage",
+    "intent": "system_status"
+  },
+  {
+    "text": "how much ram is available",
+    "intent": "system_status"
+  },
+  {
+    "text": "is my pc overheating right now",
+    "intent": "system_status"
+  },
+  {
+    "text": "check battery percentage and health",
+    "intent": "system_status"
+  },
+  {
+    "text": "how much storage space do i have left",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a system diagnostics check",
+    "intent": "system_status"
+  },
+  {
+    "text": "display current resource utilization",
+    "intent": "system_status"
+  },
+  {
+    "text": "is my internet connection stable",
+    "intent": "system_status"
+  },
+  {
+    "text": "show me the task manager stats",
+    "intent": "system_status"
+  },
+  {
+    "text": "check internal hardware temperatures",
+    "intent": "system_status"
+  },
+  {
+    "text": "how is the memory looking",
+    "intent": "system_status"
+  },
+  {
+    "text": "are there any active system alerts",
+    "intent": "system_status"
+  },
+  {
+    "text": "give me a quick health report of the machine",
+    "intent": "system_status"
+  },
+  {
+    "text": "is my hard drive full",
+    "intent": "system_status"
+  },
+  {
+    "text": "check if any processes are lagging",
+    "intent": "system_status"
+  },
+  {
+    "text": "what is draining my battery right now",
+    "intent": "system_status"
+  },
+  {
+    "text": "is the laptop running fine",
+    "intent": "system_status"
+  },
+  {
+    "text": "can you check the network speed",
+    "intent": "system_status"
+  },
+  {
+    "text": "please display system logs for errors",
+    "intent": "system_status"
+  },
+  {
+    "text": "i need to see current disk read write speeds",
+    "intent": "system_status"
+  },
+  {
+    "text": "could you pull up the status overview",
+    "intent": "system_status"
+  },
+  {
+    "text": "check if the system is overloaded",
+    "intent": "system_status"
+  },
+  {
+    "text": "what is my overall system load",
+    "intent": "system_status"
+  },
+  {
+    "text": "are all drivers functioning properly",
+    "intent": "system_status"
+  },
+  {
+    "text": "show background processes memory usage",
+    "intent": "system_status"
+  },
+  {
+    "text": "is my wireless card online",
+    "intent": "system_status"
+  },
+  {
+    "text": "check current uptime of this laptop",
+    "intent": "system_status"
+  },
+  {
+    "text": "query the operating system status",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out why my computer is slow right now",
+    "intent": "system_status"
+  },
+  {
+    "text": "get current fan speed tracking info",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up core temperatures of the processor",
+    "intent": "system_status"
+  },
+  {
+    "text": "search system metrics for bottlenecks",
+    "intent": "system_status"
+  },
+  {
+    "text": "can you scan for system anomalies",
+    "intent": "system_status"
+  },
+  {
+    "text": "find current network throughput details",
+    "intent": "system_status"
+  },
+  {
+    "text": "status check on local disk volume c",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up total power consumption currently",
+    "intent": "system_status"
+  },
+  {
+    "text": "browse the hardware diagnostic monitor profiles",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a quick check on swap space allocation",
+    "intent": "system_status"
+  },
+  {
+    "text": "do an online check for missing updates",
+    "intent": "system_status"
+  },
+  {
+    "text": "check host device security architecture status",
+    "intent": "system_status"
+  },
+  {
+    "text": "search for background resource hogging apps",
+    "intent": "system_status"
+  },
+  {
+    "text": "look for hardware component errors on the pc",
+    "intent": "system_status"
+  },
+  {
+    "text": "find performance history log for today",
+    "intent": "system_status"
+  },
+  {
+    "text": "query the current state of system memory",
+    "intent": "system_status"
+  },
+  {
+    "text": "give me the statistics for active processes",
+    "intent": "system_status"
+  },
+  {
+    "text": "check up on cloud sync background status",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up current operating system architecture data",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out how many background threads are active",
+    "intent": "system_status"
+  },
+  {
+    "text": "how healthy is my solid state drive",
+    "intent": "system_status"
+  },
+  {
+    "text": "could you scan for thermal throttling flags",
+    "intent": "system_status"
+  },
+  {
+    "text": "please query current gpu load statistics",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a machine diagnosis on peripheral status",
+    "intent": "system_status"
+  },
+  {
+    "text": "do a quick check on ping times",
+    "intent": "system_status"
+  },
+  {
+    "text": "check the hardware status for external monitors",
+    "intent": "system_status"
+  },
+  {
+    "text": "show the available space on all drives",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up current status of firewall service",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out if the sound card is active",
+    "intent": "system_status"
+  },
+  {
+    "text": "how long has my pc been running",
+    "intent": "system_status"
+  },
+  {
+    "text": "can you check for memory leak issues",
+    "intent": "system_status"
+  },
+  {
+    "text": "verify local network connectivity status configuration",
+    "intent": "system_status"
+  },
+  {
+    "text": "query the background indexing engine status",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up the current battery cycles number",
+    "intent": "system_status"
+  },
+  {
+    "text": "see if Bluetooth adapter is working fine",
+    "intent": "system_status"
+  },
+  {
+    "text": "show hardware specification summary along with temperature",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out what is utilizing my network bandwidth",
+    "intent": "system_status"
+  },
+  {
+    "text": "give me diagnostic errors report right now",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a quick analysis on ram utilization",
+    "intent": "system_status"
+  },
+  {
+    "text": "check local host availability loopback status parameters",
+    "intent": "system_status"
+  },
+  {
+    "text": "do a complete hardware checkup instantly",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up individual CPU core usage percentages",
+    "intent": "system_status"
+  },
+  {
+    "text": "see if any system services have crashed",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out if automated backup ran successfully",
+    "intent": "system_status"
+  },
+  {
+    "text": "give me an overall assessment of computer performance",
+    "intent": "system_status"
+  },
+  {
+    "text": "look for abnormal hardware behaviors in diagnostics",
+    "intent": "system_status"
+  },
+  {
+    "text": "check if operating system files are intact",
+    "intent": "system_status"
+  },
+  {
+    "text": "could you query graphic card processing metric values",
+    "intent": "system_status"
+  },
+  {
+    "text": "please verify power supply usage distribution constraints",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a check on available cache space",
+    "intent": "system_status"
+  },
+  {
+    "text": "check system security parameters health tracking configuration",
+    "intent": "system_status"
+  },
+  {
+    "text": "do a quick query on active network connections",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up current input output processing status",
+    "intent": "system_status"
+  },
+  {
+    "text": "find out if antivirus shield is fully online",
+    "intent": "system_status"
+  },
+  {
+    "text": "show system load average over last ten minutes",
+    "intent": "system_status"
+  },
+  {
+    "text": "check if hardware resource limits have been met",
+    "intent": "system_status"
+  },
+  {
+    "text": "can you look up real time driver execution status",
+    "intent": "system_status"
+  },
+  {
+    "text": "look for errors inside the kernel event logs",
+    "intent": "system_status"
+  },
+  {
+    "text": "query the system health index parameters right now",
+    "intent": "system_status"
+  },
+  {
+    "text": "check internet gateway hardware connection diagnostic values",
+    "intent": "system_status"
+  },
+  {
+    "text": "find information on virtual memory layout allocations status",
+    "intent": "system_status"
+  },
+  {
+    "text": "give me the processing speeds data points update",
+    "intent": "system_status"
+  },
+  {
+    "text": "look up any active hardware interrupts issues list",
+    "intent": "system_status"
+  },
+  {
+    "text": "see if system directory permission verification status is good",
+    "intent": "system_status"
+  },
+  {
+    "text": "run a quick network packet drops diagnostic check",
+    "intent": "system_status"
+  },
+  {
+    "text": "check audio device driver initialization parameters status metrics",
+    "intent": "system_status"
+  },
+  {
+    "text": "do a quick test for motherboard thermal sensor readings",
+    "intent": "system_status"
+  },
+  {
+    "text": "look for applications consuming the highest physical memory",
+    "intent": "system_status"
+  },
+  {
+    "text": "check the general computational performance index status dashboard",
+    "intent": "system_status"
+  },
+  {
+    "text": "exit",
+    "intent": "exit"
+  },
+  {
+    "text": "quit",
+    "intent": "exit"
+  },
+  {
+    "text": "close",
+    "intent": "close_app"
+  },
+  {
+    "text": "shutdown",
+    "intent": "exit"
+  },
+  {
+    "text": "terminate",
+    "intent": "close_app"
+  },
+  {
+    "text": "goodbye",
+    "intent": "exit"
+  },
+  {
+    "text": "bye bye",
+    "intent": "exit"
+  },
+  {
+    "text": "stop everything",
+    "intent": "exit"
+  },
+  {
+    "text": "close this program",
+    "intent": "close_app"
+  },
+  {
+    "text": "turn off",
+    "intent": "exit"
+  },
+  {
+    "text": "shut down the assistant",
+    "intent": "exit"
+  },
+  {
+    "text": "quit the application",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit out of here",
+    "intent": "exit"
+  },
+  {
+    "text": "end session",
+    "intent": "exit"
+  },
+  {
+    "text": "kill process",
+    "intent": "close_app"
+  },
+  {
+    "text": "leave",
+    "intent": "exit"
+  },
+  {
+    "text": "get out",
+    "intent": "close_app"
+  },
+  {
+    "text": "abort",
+    "intent": "close_app"
+  },
+  {
+    "text": "cancel execution",
+    "intent": "close_app"
+  },
+  {
+    "text": "go to sleep",
+    "intent": "exit"
+  },
+  {
+    "text": "power down",
+    "intent": "exit"
+  },
+  {
+    "text": "disconnect",
+    "intent": "exit"
+  },
+  {
+    "text": "close window",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut it down",
+    "intent": "exit"
+  },
+  {
+    "text": "stop running",
+    "intent": "close_app"
+  },
+  {
+    "text": "i want to exit",
+    "intent": "exit"
+  },
+  {
+    "text": "please close down",
+    "intent": "exit"
+  },
+  {
+    "text": "can you quit now",
+    "intent": "exit"
+  },
+  {
+    "text": "could you turn off",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to leave",
+    "intent": "exit"
+  },
+  {
+    "text": "time to say goodbye",
+    "intent": "exit"
+  },
+  {
+    "text": "see you later",
+    "intent": "close_app"
+  },
+  {
+    "text": "end the current task",
+    "intent": "close_app"
+  },
+  {
+    "text": "close app completely",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit immediately",
+    "intent": "exit"
+  },
+  {
+    "text": "force quit",
+    "intent": "exit"
+  },
+  {
+    "text": "kill this app",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut everything off",
+    "intent": "exit"
+  },
+  {
+    "text": "stop the script",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit session now",
+    "intent": "exit"
+  },
+  {
+    "text": "turn yourself off",
+    "intent": "exit"
+  },
+  {
+    "text": "close out everything",
+    "intent": "exit"
+  },
+  {
+    "text": "wrap up and close",
+    "intent": "close_app"
+  },
+  {
+    "text": "finish and exit",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate assistant",
+    "intent": "exit"
+  },
+  {
+    "text": "stop the program safely",
+    "intent": "close_app"
+  },
+  {
+    "text": "just exit",
+    "intent": "exit"
+  },
+  {
+    "text": "quit out",
+    "intent": "exit"
+  },
+  {
+    "text": "exit code zero",
+    "intent": "exit"
+  },
+  {
+    "text": "shut up and close",
+    "intent": "exit"
+  },
+  {
+    "text": "close down the interface",
+    "intent": "close_app"
+  },
+  {
+    "text": "get rid of this window",
+    "intent": "close_app"
+  },
+  {
+    "text": "go away for now",
+    "intent": "close_app"
+  },
+  {
+    "text": "minimise and close",
+    "intent": "close_app"
+  },
+  {
+    "text": "power off the tool",
+    "intent": "close_app"
+  },
+  {
+    "text": "dismiss assistant",
+    "intent": "exit"
+  },
+  {
+    "text": "exit program execution",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop operations",
+    "intent": "close_app"
+  },
+  {
+    "text": "cancel and quit",
+    "intent": "exit"
+  },
+  {
+    "text": "end interaction",
+    "intent": "exit"
+  },
+  {
+    "text": "close execution loop",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate runner instance",
+    "intent": "close_app"
+  },
+  {
+    "text": "clear screen and exit",
+    "intent": "exit"
+  },
+  {
+    "text": "kill active interface",
+    "intent": "close_app"
+  },
+  {
+    "text": "close interactive shell",
+    "intent": "close_app"
+  },
+  {
+    "text": "log off assistant",
+    "intent": "exit"
+  },
+  {
+    "text": "quit background thread",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit runtime pipeline",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut off system process",
+    "intent": "close_app"
+  },
+  {
+    "text": "please end session instantly",
+    "intent": "exit"
+  },
+  {
+    "text": "can you terminate yourself",
+    "intent": "exit"
+  },
+  {
+    "text": "could you close out now",
+    "intent": "close_app"
+  },
+  {
+    "text": "i need to close this",
+    "intent": "close_app"
+  },
+  {
+    "text": "would you mind shutting down",
+    "intent": "exit"
+  },
+  {
+    "text": "exit out from this page",
+    "intent": "exit"
+  },
+  {
+    "text": "finish current operations and quit",
+    "intent": "exit"
+  },
+  {
+    "text": "kill the running assistant module",
+    "intent": "close_app"
+  },
+  {
+    "text": "close window console framework",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop software execution pathway",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit active background session profile",
+    "intent": "exit"
+  },
+  {
+    "text": "shut off device controller framework",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit prompt environment directly",
+    "intent": "exit"
+  },
+  {
+    "text": "terminate standard operation cycle completely",
+    "intent": "close_app"
+  },
+  {
+    "text": "close client portal connection frame",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit local host daemon execution",
+    "intent": "close_app"
+  },
+  {
+    "text": "abort process worker thread immediately",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill current task thread allocation",
+    "intent": "close_app"
+  },
+  {
+    "text": "close system dialog box window",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit main menu loops entirely",
+    "intent": "exit"
+  },
+  {
+    "text": "quit terminal command processing framework",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down active interface panels",
+    "intent": "close_app"
+  },
+  {
+    "text": "end conversation thread container environment",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate local worker instance safely",
+    "intent": "close_app"
+  },
+  {
+    "text": "close primary system running framework",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit device management driver terminal",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit current automation script session",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate ongoing software thread loops",
+    "intent": "close_app"
+  },
+  {
+    "text": "close active operation screen instance",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit interactive dialogue processing machine",
+    "intent": "exit"
+  },
+  {
+    "text": "what's the meaning of life",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "asdfgh",
+    "intent": "unknown"
+  },
+  {
+    "text": "tell me a joke",
+    "intent": "unknown"
+  },
+  {
+    "text": "who won the world cup",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "hello",
+    "intent": "unknown"
+  },
+  {
+    "text": "qwertyuiop",
+    "intent": "unknown"
+  },
+  {
+    "text": "zxcvbnm",
+    "intent": "unknown"
+  },
+  {
+    "text": "plokmijnuhby",
+    "intent": "unknown"
+  },
+  {
+    "text": "1234567890",
+    "intent": "unknown"
+  },
+  {
+    "text": "asdfghjkl;",
+    "intent": "unknown"
+  },
+  {
+    "text": "qwerasdfzxcv",
+    "intent": "unknown"
+  },
+  {
+    "text": "poiuytrewq",
+    "intent": "unknown"
+  },
+  {
+    "text": "mnbvcxz",
+    "intent": "unknown"
+  },
+  {
+    "text": "lkjhgfdsa",
+    "intent": "unknown"
+  },
+  {
+    "text": "okmnjiuhbygv",
+    "intent": "unknown"
+  },
+  {
+    "text": "tfvgybhunjm",
+    "intent": "unknown"
+  },
+  {
+    "text": "zaqwsxedcrfv",
+    "intent": "unknown"
+  },
+  {
+    "text": "bgy76tfc34rd",
+    "intent": "unknown"
+  },
+  {
+    "text": "xsatvunp",
+    "intent": "unknown"
+  },
+  {
+    "text": "lolololol",
+    "intent": "unknown"
+  },
+  {
+    "text": "hahahaha",
+    "intent": "unknown"
+  },
+  {
+    "text": "bruh",
+    "intent": "unknown"
+  },
+  {
+    "text": "idk",
+    "intent": "unknown"
+  },
+  {
+    "text": "gimme a riddle",
+    "intent": "unknown"
+  },
+  {
+    "text": "make me laugh",
+    "intent": "unknown"
+  },
+  {
+    "text": "do you know any funny stories",
+    "intent": "unknown"
+  },
+  {
+    "text": "tell me something interesting",
+    "intent": "unknown"
+  },
+  {
+    "text": "surprise me",
+    "intent": "unknown"
+  },
+  {
+    "text": "bored out of my mind",
+    "intent": "unknown"
+  },
+  {
+    "text": "what should I do today",
+    "intent": "unknown"
+  },
+  {
+    "text": "hi there",
+    "intent": "unknown"
+  },
+  {
+    "text": "hey buddy",
+    "intent": "unknown"
+  },
+  {
+    "text": "good morning assistant",
+    "intent": "unknown"
+  },
+  {
+    "text": "good afternoon",
+    "intent": "unknown"
+  },
+  {
+    "text": "good evening",
+    "intent": "unknown"
+  },
+  {
+    "text": "yo what's up",
+    "intent": "unknown"
+  },
+  {
+    "text": "sup",
+    "intent": "unknown"
+  },
+  {
+    "text": "how's it going",
+    "intent": "unknown"
+  },
+  {
+    "text": "how are you doing today",
+    "intent": "unknown"
+  },
+  {
+    "text": "nice to meet you",
+    "intent": "unknown"
+  },
+  {
+    "text": "greetings computer",
+    "intent": "unknown"
+  },
+  {
+    "text": "anyone there",
+    "intent": "unknown"
+  },
+  {
+    "text": "testing testing one two three",
+    "intent": "unknown"
+  },
+  {
+    "text": "is this thing working",
+    "intent": "unknown"
+  },
+  {
+    "text": "respond to me",
+    "intent": "unknown"
+  },
+  {
+    "text": "wakey wakey",
+    "intent": "unknown"
+  },
+  {
+    "text": "are you awake",
+    "intent": "unknown"
+  },
+  {
+    "text": "can you hear me",
+    "intent": "unknown"
+  },
+  {
+    "text": "talk to me",
+    "intent": "unknown"
+  },
+  {
+    "text": "say something",
+    "intent": "unknown"
+  },
+  {
+    "text": "who are you",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is your name",
+    "intent": "unknown"
+  },
+  {
+    "text": "are you a human or a robot",
+    "intent": "unknown"
+  },
+  {
+    "text": "who built you",
+    "intent": "unknown"
+  },
+  {
+    "text": "where do you live",
+    "intent": "unknown"
+  },
+  {
+    "text": "how old are you",
+    "intent": "unknown"
+  },
+  {
+    "text": "do you have feelings",
+    "intent": "unknown"
+  },
+  {
+    "text": "are you alive",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is your favorite color",
+    "intent": "unknown"
+  },
+  {
+    "text": "do you like sports",
+    "intent": "unknown"
+  },
+  {
+    "text": "who is the prime minister of india",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who is the president of the united states",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many countries are in Africa",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the speed of sound",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how far away is Mars",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why is the sky blue",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do airplanes fly",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes earthquakes",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "explain quantum physics simply",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote Romeo and Juliet",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when did world war 2 end",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of France",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many people live on earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the largest ocean",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who discovered electricity",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was the internet invented",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the tallest building in the world",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who directed the movie Inception",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the formula for water",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many bones are in the human body",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "is there life after death",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "do aliens exist",
+    "intent": "unknown"
+  },
+  {
+    "text": "what happens if an unstoppable force meets an immovable object",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "which came first the chicken or the egg",
+    "intent": "unknown"
+  },
+  {
+    "text": "is time travel possible",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the nature of reality",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "do we have free will",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is the definition of consciousness",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why do bad things happen to good people",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is love",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "can money buy happiness",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is the secret to success",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do I find my purpose",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "is universe infinite",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what lies at the bottom of a black hole",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "play chess with me",
+    "intent": "unknown"
+  },
+  {
+    "text": "flip a coin",
+    "intent": "unknown"
+  },
+  {
+    "text": "roll a dice",
+    "intent": "unknown"
+  },
+  {
+    "text": "pick a number between one and ten",
+    "intent": "unknown"
+  },
+  {
+    "text": "sing me a song",
+    "intent": "unknown"
+  },
+  {
+    "text": "can you beatbox",
+    "intent": "unknown"
+  },
+  {
+    "text": "recite a poem",
+    "intent": "unknown"
+  },
+  {
+    "text": "tell me my future",
+    "intent": "unknown"
+  },
+  {
+    "text": "read my palm",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is my horoscope for today",
+    "intent": "unknown"
+  },
+  {
+    "text": "do you want to be my friend",
+    "intent": "unknown"
+  },
+  {
+    "text": "i love you",
+    "intent": "unknown"
+  },
+  {
+    "text": "you are awesome",
+    "intent": "unknown"
+  },
+  {
+    "text": "you are stupid",
+    "intent": "unknown"
+  },
+  {
+    "text": "i hate this machine",
+    "intent": "unknown"
+  },
+  {
+    "text": "sorry about that",
+    "intent": "unknown"
+  },
+  {
+    "text": "thank you very much",
+    "intent": "unknown"
+  },
+  {
+    "text": "you are welcome",
+    "intent": "unknown"
+  },
+  {
+    "text": "no problem at all",
+    "intent": "unknown"
+  },
+  {
+    "text": "don't worry about it",
+    "intent": "unknown"
+  },
+  {
+    "text": "my bad",
+    "intent": "unknown"
+  },
+  {
+    "text": "excuse me",
+    "intent": "unknown"
+  },
+  {
+    "text": "pardon me",
+    "intent": "unknown"
+  },
+  {
+    "text": "blah blah blah",
+    "intent": "unknown"
+  },
+  {
+    "text": "whatever",
+    "intent": "unknown"
+  },
+  {
+    "text": "skip this track",
+    "intent": "unknown"
+  },
+  {
+    "text": "pause the music",
+    "intent": "unknown"
+  },
+  {
+    "text": "turn up the volume",
+    "intent": "unknown"
+  },
+  {
+    "text": "mute my microphone",
+    "intent": "unknown"
+  },
+  {
+    "text": "next song please",
+    "intent": "unknown"
+  },
+  {
+    "text": "rewind thirty seconds",
+    "intent": "unknown"
+  },
+  {
+    "text": "shuffle my playlist",
+    "intent": "unknown"
+  },
+  {
+    "text": "fast forward",
+    "intent": "unknown"
+  },
+  {
+    "text": "make it quieter",
+    "intent": "unknown"
+  },
+  {
+    "text": "play classical music",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is 256 multiplied by 4",
+    "intent": "unknown"
+  },
+  {
+    "text": "calculate the square root of 144",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is 15 percent of 80",
+    "intent": "unknown"
+  },
+  {
+    "text": "add 57 and 92",
+    "intent": "unknown"
+  },
+  {
+    "text": "divide 1000 by 5",
+    "intent": "unknown"
+  },
+  {
+    "text": "solve for x in 2x plus 5 equals 11",
+    "intent": "unknown"
+  },
+  {
+    "text": "convert miles to kilometers",
+    "intent": "unknown"
+  },
+  {
+    "text": "how many inches in a foot",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is currency exchange rate today",
+    "intent": "unknown"
+  },
+  {
+    "text": "how many grams in a kilogram",
+    "intent": "unknown"
+  },
+  {
+    "text": "weather in London tomorrow",
+    "intent": "unknown"
+  },
+  {
+    "text": "is it going to rain this afternoon",
+    "intent": "unknown"
+  },
+  {
+    "text": "what's the temperature outside",
+    "intent": "unknown"
+  },
+  {
+    "text": "do I need an umbrella today",
+    "intent": "unknown"
+  },
+  {
+    "text": "forecast for the weekend",
+    "intent": "unknown"
+  },
+  {
+    "text": "is there a storm warning active",
+    "intent": "unknown"
+  },
+  {
+    "text": "what is humidity index right now",
+    "intent": "unknown"
+  },
+  {
+    "text": "sunset time tonight",
+    "intent": "unknown"
+  },
+  {
+    "text": "when does the sun rise tomorrow",
+    "intent": "unknown"
+  },
+  {
+    "text": "is it snowing in New York",
+    "intent": "unknown"
+  },
+  {
+    "text": "set an alarm for 7 am",
+    "intent": "unknown"
+  },
+  {
+    "text": "wake me up in twenty minutes",
+    "intent": "unknown"
+  },
+  {
+    "text": "cancel all my alarms",
+    "intent": "unknown"
+  },
+  {
+    "text": "start a timer for five minutes",
+    "intent": "unknown"
+  },
+  {
+    "text": "stop the timer",
+    "intent": "unknown"
+  },
+  {
+    "text": "how much time is left on my countdown",
+    "intent": "unknown"
+  },
+  {
+    "text": "remind me to check the oven at 6pm",
+    "intent": "unknown"
+  },
+  {
+    "text": "create a reminder for doctor appointment",
+    "intent": "unknown"
+  },
+  {
+    "text": "show my reminders list",
+    "intent": "unknown"
+  },
+  {
+    "text": "delete my last reminder",
+    "intent": "unknown"
+  },
+  {
+    "text": "buy stock index options",
+    "intent": "unknown"
+  },
+  {
+    "text": "book a flight to Paris",
+    "intent": "unknown"
+  },
+  {
+    "text": "order a cheese pizza from nearest shop",
+    "intent": "unknown"
+  },
+  {
+    "text": "call my mom",
+    "intent": "unknown"
+  },
+  {
+    "text": "send a text message to David",
+    "intent": "unknown"
+  },
+  {
+    "text": "email my manager the updated spreadsheet",
+    "intent": "unknown"
+  },
+  {
+    "text": "post a tweet saying hello world",
+    "intent": "unknown"
+  },
+  {
+    "text": "find directions to Golden Gate Bridge",
+    "intent": "unknown"
+  },
+  {
+    "text": "how long is my commute to work today",
+    "intent": "unknown"
+  },
+  {
+    "text": "is traffic heavy on highway 101",
+    "intent": "unknown"
+  },
+  {
+    "text": "hshshshs",
+    "intent": "unknown"
+  },
+  {
+    "text": "jdjdjjdjdjd",
+    "intent": "unknown"
+  },
+  {
+    "text": "kfaoofncoas",
+    "intent": "unknown"
+  },
+  {
+    "text": "close discord",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit spotify",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill vlc",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit chrome",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop notion",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down figma",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate postman",
+    "intent": "close_app"
+  },
+  {
+    "text": "close out of xampp",
+    "intent": "close_app"
+  },
+  {
+    "text": "can you close vs code",
+    "intent": "close_app"
+  },
+  {
+    "text": "could you quit cursor",
+    "intent": "close_app"
+  },
+  {
+    "text": "i need to close photoshop",
+    "intent": "close_app"
+  },
+  {
+    "text": "would you mind closing premiere",
+    "intent": "close_app"
+  },
+  {
+    "text": "please shut down zoom",
+    "intent": "close_app"
+  },
+  {
+    "text": "close slack for me",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill the notepad window",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate excel",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit word",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit powerpoint",
+    "intent": "close_app"
+  },
+  {
+    "text": "close the terminal",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down vscode",
+    "intent": "close_app"
+  },
+  {
+    "text": "force close calculator",
+    "intent": "close_app"
+  },
+  {
+    "text": "close edge",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit safari",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill firefox",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop opera",
+    "intent": "close_app"
+  },
+  {
+    "text": "close brave",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit tor",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down teams",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit messenger",
+    "intent": "close_app"
+  },
+  {
+    "text": "close notepad++",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate apple music",
+    "intent": "close_app"
+  },
+  {
+    "text": "close docker",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit git bash",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill command prompt",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down powershell",
+    "intent": "close_app"
+  },
+  {
+    "text": "exit intellij",
+    "intent": "close_app"
+  },
+  {
+    "text": "close eclipse",
+    "intent": "close_app"
+  },
+  {
+    "text": "quit pycharm",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate sublime text",
+    "intent": "close_app"
+  },
+  {
+    "text": "close atom",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill obsidian",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down mega sync",
+    "intent": "close_app"
+  },
+  {
+    "text": "close that window",
+    "intent": "close_app"
+  },
+  {
+    "text": "kill this process",
+    "intent": "close_app"
+  },
+  {
+    "text": "stop the running program",
+    "intent": "close_app"
+  },
+  {
+    "text": "shut down this application",
+    "intent": "close_app"
+  },
+  {
+    "text": "terminate the active process",
+    "intent": "close_app"
+  },
+  {
+    "text": "close whatever is open right now",
+    "intent": "close_app"
+  },
+  {
+    "text": "Exit.",
+    "intent": "exit"
+  },
+  {
+    "text": "exit now",
+    "intent": "exit"
+  },
+  {
+    "text": "exit please",
+    "intent": "exit"
+  },
+  {
+    "text": "Quit.",
+    "intent": "exit"
+  },
+  {
+    "text": "quit now",
+    "intent": "exit"
+  },
+  {
+    "text": "please quit",
+    "intent": "exit"
+  },
+  {
+    "text": "can you quit",
+    "intent": "exit"
+  },
+  {
+    "text": "Goodbye.",
+    "intent": "exit"
+  },
+  {
+    "text": "good bye",
+    "intent": "exit"
+  },
+  {
+    "text": "bye",
+    "intent": "exit"
+  },
+  {
+    "text": "bye for now",
+    "intent": "exit"
+  },
+  {
+    "text": "time to go, goodbye",
+    "intent": "exit"
+  },
+  {
+    "text": "i must leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "leave now please",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "shut down please",
+    "intent": "exit"
+  },
+  {
+    "text": "please shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "shut down now",
+    "intent": "exit"
+  },
+  {
+    "text": "Shutdown.",
+    "intent": "exit"
+  },
+  {
+    "text": "turn yourself off please",
+    "intent": "exit"
+  },
+  {
+    "text": "could you turn yourself off",
+    "intent": "exit"
+  },
+  {
+    "text": "power off now",
+    "intent": "exit"
+  },
+  {
+    "text": "power down please",
+    "intent": "exit"
+  },
+  {
+    "text": "disconnect now",
+    "intent": "exit"
+  },
+  {
+    "text": "please disconnect",
+    "intent": "exit"
+  },
+  {
+    "text": "log off now",
+    "intent": "exit"
+  },
+  {
+    "text": "please log off",
+    "intent": "exit"
+  },
+  {
+    "text": "log me off",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate now",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate please",
+    "intent": "exit"
+  },
+  {
+    "text": "could you deactivate",
+    "intent": "exit"
+  },
+  {
+    "text": "stop everything now",
+    "intent": "exit"
+  },
+  {
+    "text": "please stop everything",
+    "intent": "exit"
+  },
+  {
+    "text": "end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "please end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "end the session now",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to end this session",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to quit",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to leave",
+    "intent": "exit"
+  },
+  {
+    "text": "i want to shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to quit",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "i need to exit",
+    "intent": "exit"
+  },
+  {
+    "text": "would you exit",
+    "intent": "exit"
+  },
+  {
+    "text": "would you quit",
+    "intent": "exit"
+  },
+  {
+    "text": "could you exit",
+    "intent": "exit"
+  },
+  {
+    "text": "could you leave",
+    "intent": "exit"
+  },
+  {
+    "text": "can you leave",
+    "intent": "exit"
+  },
+  {
+    "text": "can you shut down",
+    "intent": "exit"
+  },
+  {
+    "text": "leave now",
+    "intent": "exit"
+  },
+  {
+    "text": "quit please",
+    "intent": "exit"
+  },
+  {
+    "text": "shut it all down",
+    "intent": "exit"
+  },
+  {
+    "text": "deactivate yourself now",
+    "intent": "exit"
+  },
+  {
+    "text": "what is the capital of Japan",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Germany",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Italy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Canada",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented the telephone",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented the light bulb",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who painted the Mona Lisa",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote Hamlet",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote the Odyssey",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when did world war 1 start",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was the moon landing",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was the printing press invented",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how tall is Mount Everest",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how deep is the Mariana Trench",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how fast does light travel",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the boiling point of water",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the chemical symbol for gold",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the largest planet in the solar system",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the smallest country in the world",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the longest river in the world",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes lightning",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes volcanoes to erupt",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why do leaves change color",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why is the ocean salty",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does photosynthesis work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does a refrigerator work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "explain gravity simply",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "explain black holes simply",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define photosynthesis",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define democracy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define inflation",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what does DNA stand for",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what does CPU stand for",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who discovered penicillin",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who developed the theory of relativity",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where is the Great Barrier Reef",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where is the Sahara desert",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many continents are there",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many planets are in the solar system",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what year did the Titanic sink",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what language is spoken in Brazil",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the currency of Japan",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the population of India",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the highest mountain in Africa",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was the first person on the moon",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was Cleopatra",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the speed of light",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is absolute zero",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is pi approximately",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how old is the Earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how large is the Milky Way",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is a neutron star",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is an eclipse",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the greenhouse effect",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what causes the seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why do we have seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do vaccines work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how does the internet work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is machine learning",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is climate change",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who founded Microsoft",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who founded Apple",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when was Python created",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the Pythagorean theorem",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the circumference of Earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the distance to the sun",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many elements are on the periodic table",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the hardest natural substance",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what animal is the largest on earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what bird cannot fly",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "where do penguins live",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the capital of Australia",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the official language of China",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who composed the Four Seasons",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who sculpted David",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "when did the Roman Empire fall",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what caused the French Revolution",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the Magna Carta",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who was Albert Einstein",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what did Marie Curie discover",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how do magnets work",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is electricity",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is an atom made of",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the water cycle",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "why does iron rust",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the ozone layer",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how far is the moon from earth",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is a black hole",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "define entropy",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the meaning of photosynthesis",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who invented calculus",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the largest desert",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the smallest ocean",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "how many teeth does an adult human have",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what blood type is the universal donor",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the normal human body temperature",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who wrote Pride and Prejudice",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "who painted Starry Night",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what is the boiling point of nitrogen",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what gas do plants absorb",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "what gas do humans exhale",
+    "intent": "knowledge_query"
+  },
+  {
+    "text": "open file report",
+    "intent": "open_path"
+  },
+  {
+    "text": "open the file named budget",
+    "intent": "open_path"
+  },
+  {
+    "text": "open document invoice",
+    "intent": "open_path"
+  },
+  {
+    "text": "open my resume pdf",
+    "intent": "open_path"
+  },
+  {
+    "text": "open the pdf called contract",
+    "intent": "open_path"
+  },
+  {
+    "text": "find file notes",
+    "intent": "open_path"
+  },
+  {
+    "text": "find the file license",
+    "intent": "open_path"
+  },
+  {
+    "text": "find document thesis",
+    "intent": "open_path"
+  },
+  {
+    "text": "find my spreadsheet expenses",
+    "intent": "open_path"
+  },
+  {
+    "text": "locate file homework",
+    "intent": "open_path"
+  },
+  {
+    "text": "locate the document syllabus",
+    "intent": "open_path"
+  },
+  {
+    "text": "show file readme",
+    "intent": "open_path"
+  },
+  {
+    "text": "show me the file proposal",
+    "intent": "open_path"
+  },
+  {
+    "text": "show document meeting notes",
+    "intent": "open_path"
+  },
+  {
+    "text": "show me resume",
+    "intent": "open_path"
+  },
+  {
+    "text": "bring up file assignment",
+    "intent": "open_path"
+  },
+  {
+    "text": "bring up the document draft",
+    "intent": "open_path"
+  },
+  {
+    "text": "pull up file timeline",
+    "intent": "open_path"
+  },
+  {
+    "text": "pull up the pdf manual",
+    "intent": "open_path"
+  },
+  {
+    "text": "select file photos",
+    "intent": "open_path"
+  },
+  {
+    "text": "select the document checklist",
+    "intent": "open_path"
+  },
+  {
+    "text": "open path to project plan",
+    "intent": "open_path"
+  },
+  {
+    "text": "open this file taxes",
+    "intent": "open_path"
+  },
+  {
+    "text": "can you open file recipe",
+    "intent": "open_path"
+  },
+  {
+    "text": "please find file passport scan",
+    "intent": "open_path"
+  },
+  {
+    "text": "please open document essay",
+    "intent": "open_path"
+  },
+  {
+    "text": "I need the file transcript",
+    "intent": "open_path"
+  },
+  {
+    "text": "I need document certificate",
+    "intent": "open_path"
+  },
+  {
+    "text": "where is file presentation",
+    "intent": "open_path"
+  },
+  {
+    "text": "where is my document portfolio",
+    "intent": "open_path"
+  },
+  {
+    "text": "search files for invoice",
+    "intent": "open_path"
+  },
+  {
+    "text": "search my documents for lease",
+    "intent": "open_path"
+  },
+  {
+    "text": "look for file receipt",
+    "intent": "open_path"
+  },
+  {
+    "text": "look for the document warranty",
+    "intent": "open_path"
+  },
+  {
+    "text": "get me file schedule",
+    "intent": "open_path"
+  },
+  {
+    "text": "get the document brochure",
+    "intent": "open_path"
+  },
+  {
+    "text": "open csv data sales",
+    "intent": "open_path"
+  },
+  {
+    "text": "open spreadsheet budget 2024",
+    "intent": "open_path"
+  },
+  {
+    "text": "open word doc cover letter",
+    "intent": "open_path"
+  },
+  {
+    "text": "find pdf statement",
+    "intent": "open_path"
+  },
+  {
+    "text": "find txt log",
+    "intent": "open_path"
+  },
+  {
+    "text": "open the notes text file",
+    "intent": "open_path"
+  },
+  {
+    "text": "show me the license document",
+    "intent": "open_path"
+  },
+  {
+    "text": "open file in explorer report",
+    "intent": "open_path"
+  },
+  {
+    "text": "highlight file agenda in explorer",
+    "intent": "open_path"
+  },
+  {
+    "text": "open my downloads file ticket",
+    "intent": "open_path"
+  },
+  {
+    "text": "find desktop file shortcuts list",
+    "intent": "open_path"
+  },
+  {
+    "text": "open documents folder file minutes",
+    "intent": "open_path"
+  },
+  {
+    "text": "locate pdf named handbook",
+    "intent": "open_path"
+  },
+  {
+    "text": "open the file called summary",
+    "intent": "open_path"
+  }
+]

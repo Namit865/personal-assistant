@@ -29,13 +29,14 @@ D_FF = 256
 MIN_FREQ = 2
 
 FILE_ROOTS = [
-    Path.home() / "Documents",
-    Path.home() / "Downloads",
     Path.home() / "Desktop",
+    Path.home() / "OneDrive" / "Desktop",
+    Path.home() / "Documents",
+    Path.home() / "OneDrive" / "Documents",
+    Path.home() / "Downloads",
+    Path.home() / "OneDrive" / "Downloads",
     Path.home() / "Pictures",
+    Path.home() / "OneDrive" / "Pictures",
     Path.home() / "Music",
     Path.home() / "Videos",
-    Path.home() / "Public",
-    Path.home() / "Templates",
-    Path.home() / "Favorites",
 ]

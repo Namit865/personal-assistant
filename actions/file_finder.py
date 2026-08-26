@@ -1,6 +1,8 @@
 import re
 from pathlib import Path
 from config import FILE_ROOTS
+import subprocess
+import os
 
 DOC_EXT = {".txt", ".md", ".pdf", ".doc", ".docx", ".xlsx", ".csv", ".json"}
 SKIP_PARTS = ("phone link", "screenshot")
@@ -48,3 +50,11 @@ def find_files(name, limit=10):
 
     hits.sort()
     return [p for _, _, _, p in hits[:limit]]
+
+def open_file(path):
+    path = Path(path).resolve()
+    if not path.exists():
+        return False
+    
+    subprocess.Popen(["explorer",f"/select,{path}"])
+    return True
