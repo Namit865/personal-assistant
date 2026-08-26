@@ -100,10 +100,18 @@ def open_app(text, context):
 
 
 def web_search(text, context):
-    query = extract_search_query(text)
-    webbrowser.open(f"https://www.google.com/search?q={quote_plus(query)}")
-    return f"opened search for {query}"
+    clean_query = extract_search_query(text)
+    words = clean_query.split()
 
+    if "youtube" in words:
+        query = " ".join(w for w in words if w not in ("youtube","in","on"))
+        webbrowser.open(f"https://www.youtube.com/results?search_query={quote_plus(query)}")
+
+        return f"searching for {query} on youtube"
+    
+    webbrowser.open(f"https://www.google.com/search?q={quote_plus(clean_query)}")
+
+    return f"opened search for {clean_query}"
 
 def create_note(text, context):
     notes = ROOT / "notes.txt"

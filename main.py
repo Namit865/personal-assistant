@@ -66,6 +66,8 @@ def process(text, vocab, label_map, w1, b1, w2, b2, context):
 def main():
     vocab, label_map, w1, b1, w2, b2, context = load_model()
     print("Write a message...")
+    print("Press 'v' to enable voice mode")
+    print("say keyboard to go back to keyboard mode")
 
     last_text = None
     voice_mode = False
