@@ -50,8 +50,14 @@ def speak(message):
     engine.say(message)
     engine.runAndWait()
 
+def normalize(text):
+    words = text.lower().split()
+    if len(words) >= 2 and words[0] == "search" and words[1] != "for":
+        return "search for " + " ".join(words[1:])
+    return text
 
-def process(text, vocab, label_map, w1, b1, w2, b2, context):
+def process_one(text, vocab, label_map, w1, b1, w2, b2, context):
+    text = normalize(text)
     label,confidence = predict(text, vocab, label_map, w1, b1, w2, b2)
     if confidence < THRESHOLD:
         return None, "Uncertainity"
@@ -61,6 +67,18 @@ def process(text, vocab, label_map, w1, b1, w2, b2, context):
         return label, result
     
     return label,"I didn't understand that."
+
+def process(text,vocab,label_map,w1,b1,w2,b2,context):
+    if " and " in text.lower():
+        left,right = text.lower().split(" and ",1)
+        left_label,left_message = process_one(left.strip(),vocab,label_map,w1,b1,w2,b2,context)
+        right_label,right_message = process_one(right.strip(),vocab,label_map,w1,b1,w2,b2,context)
+
+        label = "exit" if left_label == "exit" or right_label == "exit" else left_label
+
+        return label, left_message + "\n" + right_message
+
+    return process_one(text,vocab,label_map,w1,b1,w2,b2,context)
 
 
 def main():
@@ -112,6 +130,7 @@ def main():
         label, message = process(text, vocab, label_map, w1, b1, w2, b2, context)
         print(message)
         speak(message)
+
         if voice_mode:
             time.sleep(1)
         if label == "exit":
