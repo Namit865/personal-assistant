@@ -21,6 +21,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from core.text_utils import tokenize
 from core.retrieval import fetch_answer
 
+SEARCH_FILLER = {
+    "search","google","web","look","find","browse","search for","google for","web for","for"
+}
 
 FILLER = {
     "open",
@@ -97,8 +100,9 @@ def open_app(text, context):
 
 
 def web_search(text, context):
-    webbrowser.open(f"https://www.google.com/search?q={quote_plus(text)}")
-    return f"opened search for {text}"
+    query = extract_search_query(text)
+    webbrowser.open(f"https://www.google.com/search?q={quote_plus(query)}")
+    return f"opened search for {query}"
 
 
 def create_note(text, context):
@@ -192,3 +196,11 @@ def extract_app_name(text):
     result = " ".join(kept)
 
     return result
+
+def extract_search_query(text):
+    words = tokenize(text)
+    kept = [w for w in words if w not in SEARCH_FILLER]
+    if not kept:
+        return text
+    
+    return " ".join(kept)
