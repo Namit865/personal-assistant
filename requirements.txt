@@ -1,3 +1,7 @@
 numpy
 pytest
 psutil
+tavily-python
+SpeechRecognition
+pyaudio
+pyttsx3

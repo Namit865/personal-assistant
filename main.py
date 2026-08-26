@@ -52,8 +52,18 @@ def speak(message):
 
 def normalize(text):
     words = text.lower().split()
-    if len(words) >= 2 and words[0] == "search" and words[1] != "for":
-        return "search for " + " ".join(words[1:])
+    if len(words) < 2:
+        return text
+    
+    first = words[0]
+    rest = words[1:]
+
+    if first == "search" and rest[0] != "for":
+        return "search for " + " ".join(rest)
+
+    if first in ("web","google"):
+        return "search for " + " ".join(rest)
+
     return text
 
 def process_one(text, vocab, label_map, w1, b1, w2, b2, context):

@@ -82,6 +82,23 @@ NOTE_FILLERS = FILLER | {
     "that",
 }
 
+def open_url(url,context):
+    candidates = [
+        Path(os.environ.get("PROGRAMFILES", r"C:\Program Files"))
+        / "Google/Chrome/Application/chrome.exe",
+        Path(os.environ.get("PROGRAMFILES(X86)", r"C:\Program Files (x86)"))
+        / "Google/Chrome/Application/chrome.exe",
+        Path(os.environ["LOCALAPPDATA"])
+        / "Google/Chrome/Application/chrome.exe",
+    ]
+
+    for path in candidates:
+        if path.exists():
+            subprocess.Popen([str(path),url])
+            return True
+
+    subprocess.Popen(["cmd","/c","start","chrome",url],shell=False)
+    return True
 
 def close_app(text, content):
     app_name = extract_app_name(text)
@@ -121,13 +138,13 @@ def web_search(text, context):
     words = clean_query.split()
 
     if "youtube" in words:
-        query = " ".join(w for w in words if w not in ("youtube","in","on"))
-        webbrowser.open(f"https://www.youtube.com/results?search_query={quote_plus(query)}")
-
+        query = " ".join(w for w in words if w not in ("youtube", "in", "on"))
+        url = f"https://www.youtube.com/results?search_query={quote_plus(query)}"
+        open_url(url, context)
         return f"searching for {query} on youtube"
-    
-    webbrowser.open(f"https://www.google.com/search?q={quote_plus(clean_query)}")
 
+    url = f"https://www.google.com/search?q={quote_plus(clean_query)}"
+    open_url(url, context)
     return f"opened search for {clean_query}"
 
 def create_note(text, context):

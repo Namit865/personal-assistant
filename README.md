@@ -16,10 +16,16 @@ Three layers that stay separate on purpose:
 
 ```
 text (type or listen)
-  → process(): predict → REGISTRY[label](text, context)
-  → (label, message)
+  → process():
+       if " and " in text → split into two halves
+       each half: normalize() → process_one() → predict → handler
+  → (label, message)   # compound messages joined with newline
   → print(message) + speak(message)
 ```
+
+- **`normalize()`** — rewrites short search-like phrases so they match training (`search python` / `web skyfall` / `google X` → `search for …`) before classify. Does not invent new intents.
+- **`process_one()`** — one half or one full sentence: normalize → predict → handler → `(label, message)`.
+- **`process()`** — if the text contains ` and `, runs `process_one` on left and right; otherwise one shot. If either half is `exit`, the turn label is `exit`.
 
 Low confidence returns `(None, "Uncertainity")` so a weak guess never triggers `exit`. Voice mode stays on until you say `keyboard` / `stop` / `stop listening`, or until `exit`.
 
@@ -31,7 +37,7 @@ Every handler uses `(text, context)`. `context` currently holds the Start Menu a
 |---|---|
 | `open_app` | Launch an installed app by short name (`open vlc`) |
 | `close_app` | Terminate matching running processes |
-| `web_search` | Open Google (or YouTube if you say `youtube`) for an **extracted** query |
+| `web_search` | Open Google or YouTube search for an **extracted** query, always in **Chrome** when `chrome.exe` is found |
 | `create_note` | Append a timestamped **body** (command words stripped) to `notes.txt` |
 | `system_status` | Report time / CPU / RAM / disk / battery / power / top processes (sections you asked for) |
 | `knowledge_query` | Ask Tavily with `include_answer=True` and return that short factual answer |
@@ -40,15 +46,17 @@ Every handler uses `(text, context)`. `context` currently holds the Start Menu a
 
 Seed data: **874** examples (100 each for most command intents; `knowledge_query` 134; `unknown` 140). Retrain with `scripts/train.py` after seed changes.
 
-### Slots (not new intents)
+### Slots and compound turns (not new intents)
 
-The classifier only picks the **job**. Handlers pull **what** / **where** from the sentence:
+The classifier only picks the **job**. Handlers (and a thin pre-step in `main`) pull **what** / **where** / **how many jobs**:
 
 - `extract_app_name` — strips launch/close filler for `open_app` / `close_app`
-- `extract_search_query` — strips search filler; if `youtube` is present, open YouTube results and drop `on` / `in` / `youtube` from the query; else Google
+- `extract_search_query` — strips search filler; if `youtube` is in the tokens, open YouTube results and drop `on` / `in` / `youtube` from the query; else Google search URL
 - `extract_note_body` — strips note filler so the file gets content, not “note down that…”
+- **`and`** — `open notepad and search python` runs two turns and returns both completion lines
+- **`open_url`** — web searches call real `chrome.exe` under Program Files / LocalAppData (not a Start Menu `.lnk`, which causes WinError 193 with `Popen`). Falls back to `cmd /c start chrome <url>` if needed. This is intentional so search does not open Edge when Edge is the OS default browser.
 
-A note is a **file line**, not a Windows reminder popup. Reminders are a later stage.
+A note is a **file line**, not a Windows reminder popup. YouTube is **search results**, not autoplay. Reminders / autoplay are later stages.
 
 ### `knowledge_query` (product path)
 
@@ -95,13 +103,13 @@ pytest
 git clone https://github.com/Namit865/personal-assistant
 cd personal-assistant
 pip install -r requirements.txt
-# also used by main today (add to requirements when you next touch that file):
-# pip install tavily-python SpeechRecognition pyaudio pyttsx3
 setx TAVILY_API_KEY "your_key"   # then open a new terminal
 python main.py
 ```
 
-Windows only for app launch / close / power status. Classifier weights are committed so clone-and-run works for typed commands; knowledge answers need the API key; voice needs mic permission and the packages above.
+`requirements.txt` includes NumPy, pytest, psutil, plus runtime deps used by `main` today: `tavily-python`, `SpeechRecognition`, `pyaudio`, `pyttsx3`.
+
+Windows only for app launch / close / power status / Chrome path helpers. Classifier weights are committed so clone-and-run works for typed commands; knowledge answers need the API key; voice needs mic permission.
 
 ## Known limitations
 
@@ -110,13 +118,15 @@ Windows only for app launch / close / power status. Classifier weights are commi
 - **YouTube path is search results**, not autoplay of the first video.
 - **Notes are not reminders** — no popup until “done.”
 - **Voice STT uses Google** by default — needs internet; room noise / wrong mic device can hang or miss speech.
+- **Compound `and` is literal** — only splits on ` and `; each half is classified on its own. Odd second halves still need `normalize` or better seed examples.
+- **Chrome must be installed** for forced-browser search; otherwise fallback/`start chrome` may still fail.
 - **Span-QA lab is parked** — do not expect `predict_qa` quality for live assistant answers.
 
 ## Project structure
 
 ```
 personal-assistant/
-├── main.py                 # load model, process(), listen/speak, voice_mode loop
+├── main.py                 # load model, normalize, process/process_one, listen/speak, voice_mode
 ├── config.py               # paths + QA hyperparameters (constants only)
 ├── core/
 │   ├── text_utils.py
@@ -135,7 +145,7 @@ personal-assistant/
 │   ├── build_vocab.py
 │   └── audit_data.py
 ├── actions/
-│   ├── handlers.py         # intents + slot extractors
+│   ├── handlers.py         # intents, slot extractors, open_url (chrome.exe)
 │   ├── registry.py
 │   └── app_finder.py
 ├── memory/
@@ -163,13 +173,15 @@ personal-assistant/
 - [x] Handlers return a completion string; `process()` is the single turn
 - [x] Optional mic session + local TTS
 - [x] Slots for search (Google / YouTube) and note body
+- [x] Compound `and` turns + `normalize` for short `search` / `web` / `google` phrases
+- [x] Web search opens in Chrome via `chrome.exe` (not OS default / not `.lnk` + `Popen`)
 - [x] Stage 1 transformer lab (trained, parked off `main`)
 
 **Next (still command/slots, not vision)**
 
-- [ ] Stronger multi-slot lines (`open X and search Y`) without hardcoding one media intent
 - [ ] Optional: Windows reminders / notifications (separate from file notes)
 - [ ] Optional: local STT so voice does not depend on Google
+- [ ] Richer multi-part sentences beyond a single ` and `
 - [ ] Screen / UI vision only when command + slots are solid
 
 **Parked (lab, not product blockers)**
