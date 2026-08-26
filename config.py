@@ -27,3 +27,15 @@ N_LAYERS = 3
 D_FF = 256
 
 MIN_FREQ = 2
+
+FILE_ROOTS = [
+    Path.home() / "Documents",
+    Path.home() / "Downloads",
+    Path.home() / "Desktop",
+    Path.home() / "Pictures",
+    Path.home() / "Music",
+    Path.home() / "Videos",
+    Path.home() / "Public",
+    Path.home() / "Templates",
+    Path.home() / "Favorites",
+]
