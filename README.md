@@ -1,101 +1,85 @@
 # Personal Assistant (from scratch)
 
-A Windows command-line personal assistant with a hand-built intent classifier — no ML libraries. Every gradient in the network is derived by hand and verified numerically against PyTorch autograd (max abs diff `1e-17`–`1e-19`, reproduced mechanically in `tests/test_gradients.py`). Held-out test accuracy: **86.4%** across 7 intents, measured via a permanent diagnostic split that runs on every retrain (see `scripts/train.py`).
+A Windows personal assistant with a hand-built intent classifier — no ML libraries for the command brain. Every gradient in that network is derived by hand and verified numerically against PyTorch autograd (max abs diff ~`1e-17`, in `tests/test_gradients.py`).
 
-This isn't a wrapper around an existing NLU library. The classifier is a two-layer neural net written in raw NumPy, trained on a small seed dataset, with forward pass, backward pass, and parameter updates all implemented from the underlying math — not `model.fit()`.
-
-## Why it's built this way
-
-Most "personal assistant" tutorials wire together an intent-classification API and a handful of `if` statements. The point of this project was the opposite: understand and implement every layer myself, so debugging is possible at any depth — from a shape mismatch in a gradient to a Start Menu shortcut that doesn't resolve.
+This is not a wrapper around an NLU API. The classifier is a two-layer NumPy net: tokenize → bag-of-words → forward → softmax → intent. Handlers then act on your PC. Typed text and voice both feed the **same** turn function.
 
 ## Architecture
 
-The project is split into two halves that don't know much about each other:
+Three layers that stay separate on purpose:
 
-- **Understanding** (`core/`) — text goes in, an intent label and confidence score come out. This is the NumPy classifier: tokenization → vectorization → forward pass → softmax → prediction. It has no idea what `open_app` *does*, only that this text belongs to that label.
-- **Acting** (`actions/`) — given a label and the original text, actually do something: launch an app, open a browser, write a file, report system stats. Handlers have no idea how the label was chosen.
+1. **Input** — keyboard at `>`, or type `v` for a mic session (`listen()`). Both produce a normal string.
+2. **Understanding** (`core/classifier.py`) — string → `(label, confidence)`. Does not know how to open Chrome.
+3. **Acting** (`actions/`) — label → handler. Handlers **return** a short completion string; they should not be the only place that prints.
 
-`main.py` is the only place these two halves meet: it classifies, checks a confidence threshold, and dispatches to the matching handler.
+`main.py` owns the turn:
 
 ```
-text → [classifier: predict()] → (label, confidence)
-                                        │
-                              confidence < 0.6? → "not sure" and re-prompt
-                                        │
-                              REGISTRY[label](text, context) → action happens
+text (type or listen)
+  → process(): predict → REGISTRY[label](text, context)
+  → (label, message)
+  → print(message) + speak(message)
 ```
 
-Every handler takes the same `(text, context)` signature, where `context` is a dict of shared state built once at startup (currently the app index). Five of the seven handlers ignore it entirely. This was chosen over per-handler signatures deliberately: adding new shared state later means adding a dict key, not editing every function signature and the dispatch line.
+Low confidence returns `(None, "Uncertainity")` so a weak guess never triggers `exit`. Voice mode stays on until you say `keyboard` / `stop` / `stop listening`, or until `exit`.
 
-## The seven intents
+Every handler uses `(text, context)`. `context` currently holds the Start Menu app index.
+
+## The eight intents
 
 | Intent | What it does |
 |---|---|
-| `open_app` | Finds and launches an installed app by short name (e.g. "open vlc") |
-| `close_app` | Finds every running process matching a short app name and terminates all of them |
-| `web_search` | Opens a Google search for the typed query in the default browser |
-| `create_note` | Appends a timestamped line to `notes.txt` |
-| `system_status` | Reports time, CPU, RAM, disk, battery, power mode, and top memory-consuming processes — filtered to just what you asked for |
-| `exit` | Prints a goodbye message and ends the session |
-| `unknown` | Fallback for anything the classifier can't confidently place elsewhere |
+| `open_app` | Launch an installed app by short name (`open vlc`) |
+| `close_app` | Terminate matching running processes |
+| `web_search` | Open Google (or YouTube if you say `youtube`) for an **extracted** query |
+| `create_note` | Append a timestamped **body** (command words stripped) to `notes.txt` |
+| `system_status` | Report time / CPU / RAM / disk / battery / power / top processes (sections you asked for) |
+| `knowledge_query` | Ask Tavily with `include_answer=True` and return that short factual answer |
+| `exit` | Goodbye and end the session |
+| `unknown` | Fallback when nothing else fits |
 
-Training data is balanced at 100 examples per real intent, with `unknown` at 173 — 773 examples total.
+Seed data: **874** examples (100 each for most command intents; `knowledge_query` 134; `unknown` 140). Retrain with `scripts/train.py` after seed changes.
 
-### `open_app` in more detail
+### Slots (not new intents)
 
-Rather than a hardcoded `{"discord": "C:/..."}` map — which breaks on any other machine — the app index is built at startup from two sources:
+The classifier only picks the **job**. Handlers pull **what** / **where** from the sentence:
 
-1. **Start Menu `.lnk` shortcuts**, scanned recursively from `%APPDATA%` and `%PROGRAMDATA%` (~149 entries on a typical install)
-2. **`Get-StartApps`** via a PowerShell subprocess, which returns UWP/Store apps that never had `.lnk` files at all — Settings, the modern Calculator, Store-installed apps like Telegram. These are indexed as `shell:AppsFolder\{AUMID}` and launch through the same `os.startfile()` path.
+- `extract_app_name` — strips launch/close filler for `open_app` / `close_app`
+- `extract_search_query` — strips search filler; if `youtube` is present, open YouTube results and drop `on` / `in` / `youtube` from the query; else Google
+- `extract_note_body` — strips note filler so the file gets content, not “note down that…”
 
-Lookup against that index is two-tier:
+A note is a **file line**, not a Windows reminder popup. Reminders are a later stage.
 
-1. **Exact match** against the shortcut's filename
-2. **Prefix-ranked substring match** — "vlc" resolves to `VLC media player.lnk` over `VLC media player - reset preferences and cache files.lnk`, because it prefers keys that *start with* the query, then breaks ties by shortest key
+### `knowledge_query` (product path)
 
-If the app was installed after the index was built, a miss triggers exactly one rescan before giving up.
+Informational questions (“who invented the telephone”) go to Tavily. The handler prints/speaks `response["answer"]`. Requires `TAVILY_API_KEY` in the user environment (restart the terminal after setting it).
 
-### `close_app` in more detail
+A from-scratch SQuAD **span extractor** (`core/qa_model.py`, `scripts/train_qa.py`, `core/predict_qa.py`) was built as a learning lab. It is **not** on the critical path for answers in `main.py` — a ~240k-param extractive model without pretraining was too weak for live web text. Keep those files; do not wire them back into the handler unless you are experimenting.
 
-Queries running processes fresh on every call — never cached, unlike `open_app`'s index. A process list a few seconds stale is actively wrong, while an app index a few minutes stale is merely incomplete.
+### Voice
 
-Matches by substring against process names, then **terminates every matching process**, not just one. Multi-process apps like Chrome or Electron-based tools spawn one process per tab/window/helper, so killing a single instance leaves the app visibly still running. In practice "close chrome" terminates around 14 processes.
-
-Two things worth knowing about how it fails:
-
-- `psutil.Process.terminate()` is a **forceful kill** (`TerminateProcess` on Windows) — there's no "save changes?" prompt. Fine for disposable apps, real risk for anything with unsaved work.
-- A process can legitimately exit in the gap between listing it and killing it (`psutil.NoSuchProcess`), or be protected by the OS (`psutil.AccessDenied`). Both are caught per-process and reported, not allowed to crash the whole command.
-
-**`close_app` vs `exit` is a deliberately resolved ambiguity, not an accident.** Bare phrases like "close" or "stop" with no named object could plausibly mean either "quit this app" or "shut down the assistant." The 100 original `exit` examples were re-sorted by an explicit three-tier rule: phrases containing an object word (app, window, process, terminal…) always go to `close_app`; phrases with self-referential or farewell vocabulary (goodbye, session, yourself, shutdown…) go to `exit`; anything matching neither defaults to `close_app`. That default is the point — a wrong `close_app` guess fails harmlessly, while a wrong `exit` guess ends the whole session. Cheaper failure wins.
-
-Both intents share one `extract_app_name()` with a combined filler set covering launching and closing verbs, since the two verb sets never collide.
-
-### `system_status` in more detail
-
-Computes all six sections (time, CPU, RAM, disk, battery, power mode, top processes) on every call, but only prints the sections your text actually asked for — "battery status" prints just battery; "current power plan and battery usage" prints exactly those two; plain "system status" prints the full report. Each section is gated by an independent `if`, not `elif`, so compound requests print multiple sections. Power mode is read via `powercfg /getactivescheme` through `subprocess`, since Windows power plans aren't exposed by `psutil`.
+- `SpeechRecognition` + mic backend → `listen()`
+- `pyttsx3` (local Windows SAPI) → `speak()` after every turn message
+- Type `v` once → stay on mic; say `keyboard` to return to typing
+- After TTS in voice mode, `time.sleep(1)` so the mic does not record the speaker
+- `listen()` uses ambient calibration; Google STT needs network for recognition
 
 ## Training
 
-`scripts/train.py` runs **two passes every time**, and this is permanent rather than a debugging convenience:
+`scripts/train.py` still runs two passes:
 
-1. **Diagnostic pass** — 80/20 split (seed 42), reports honest held-out accuracy, then discards the weights.
-2. **Production pass** — trains on the full dataset; *these* are the weights saved to `models/`.
+1. **Diagnostic** — 80/20 split (seed 42), held-out accuracy, weights discarded; vocab from train split only.
+2. **Production** — full data; saves `models/weights.npz` and `models/vocab.json`.
 
-The vocabulary is rebuilt separately for each pass. The diagnostic pass builds its vocab from training examples only, so test-set words never leak into the word-frequency counts that decide which tokens survive `min_freq=2`. Collapsing these into one shared vocab would quietly inflate the reported accuracy — the distinction is load-bearing.
+Epoch-0 loss should sit near `ln(n_classes)` (`ln(8) ≈ 2.08` with eight intents).
 
-Epoch-0 loss is verified against `ln(n_classes)` on every retrain (`ln(7) ≈ 1.9459`) as a cheap sanity check that the softmax and label mapping are wired correctly.
-
-### Correcting mistakes
-
-If the assistant misclassifies something, follow it immediately with:
+### Corrections
 
 ```
 !fix <correct_label>
 ```
 
-This logs the text and correct label to `data/corrections.json`. It does **not** retrain on the spot — one-off retraining after a single correction risks catastrophic forgetting.
-
-`memory/retrain.py` consumes those corrections in a **gated batch retrain**: it trains a baseline model on seed data alone and a candidate model on seed + corrections, each with its own vocabulary, and evaluates both on the same held-out split. New weights are saved only if the candidate stays within 2 percentage points of the baseline. Otherwise nothing is written and both numbers are reported. The tolerance is roughly twice the run-to-run drift already observed from unseeded weight initialization.
+Logs to `data/corrections.json`. `memory/retrain.py` does a gated batch retrain (candidate must stay within ~2 points of baseline).
 
 ## Tests
 
@@ -103,11 +87,7 @@ This logs the text and correct label to `data/corrections.json`. It does **not**
 pytest
 ```
 
-21 tests across three files:
-
-- `test_text_utils.py` (7) — tokenization and cleaning edge cases
-- `test_vectorizer.py` (10) — vocab construction, `<UNK>` handling, dataset shapes
-- `test_gradients.py` (4) — hand-derived `backward()` against PyTorch autograd at `float64`, `atol=1e-9`, seeded. Both sides must be `float64`; at `float32` the comparison is meaningless.
+21 tests: text utils, vectorizer, gradient checks vs PyTorch.
 
 ## Setup
 
@@ -115,101 +95,84 @@ pytest
 git clone https://github.com/Namit865/personal-assistant
 cd personal-assistant
 pip install -r requirements.txt
+# also used by main today (add to requirements when you next touch that file):
+# pip install tavily-python SpeechRecognition pyaudio pyttsx3
+setx TAVILY_API_KEY "your_key"   # then open a new terminal
 python main.py
 ```
 
-`models/weights.npz` and `models/vocab.json` are committed deliberately, so this runs immediately after cloning — no training step required. Type a command at the `>` prompt.
-
-Windows only. `open_app`, `close_app`, and `system_status` all depend on Windows-specific mechanisms (Start Menu layout, `Get-StartApps`, `powercfg`).
+Windows only for app launch / close / power status. Classifier weights are committed so clone-and-run works for typed commands; knowledge answers need the API key; voice needs mic permission and the packages above.
 
 ## Known limitations
 
-- **`close_app` terminates forcefully, with no save prompt.** A real risk for apps with unsaved work, not just a rough edge.
-- **`system_status` is the weakest intent** (~70% on held-out data, measured before the 7-intent retrain), mostly from leading-word ambiguity in the seed examples.
-- **`close_app` and `exit` sit close together in confidence space** by design — "quit spotify" and "shut down the assistant" land around 0.67–0.70, just above the 0.6 threshold. Expected given deliberately overlapping vocabulary, but worth monitoring through `!fix` in real use.
-- **Overlapping `system_status` keywords can double-print a section.** Low priority, known.
-- **CPU/GPU temperature is intentionally excluded.** `psutil` doesn't reliably expose it on Windows; reporting a number here would mean faking it.
+- **`close_app` is a forceful terminate** — no save prompt.
+- **`knowledge_query` depends on Tavily** — quality and availability are the API’s, not a local generative model.
+- **YouTube path is search results**, not autoplay of the first video.
+- **Notes are not reminders** — no popup until “done.”
+- **Voice STT uses Google** by default — needs internet; room noise / wrong mic device can hang or miss speech.
+- **Span-QA lab is parked** — do not expect `predict_qa` quality for live assistant answers.
 
 ## Project structure
 
 ```
 personal-assistant/
-├── main.py                    # entry point: load model, input loop, dispatch
-├── config.py                  # path constants only — no logic
+├── main.py                 # load model, process(), listen/speak, voice_mode loop
+├── config.py               # paths + QA hyperparameters (constants only)
 ├── core/
-│   ├── text_utils.py          # clean_text(), tokenize()
-│   ├── vectorizer.py          # build_vocab(), vectorize(), build_dataset()
-│   ├── data_loader.py         # load_examples(), build_label_map(), split_examples()
-│   ├── classifier.py          # forward(), backward(), predict()
-│   ├── trainer.py             # training loop
-│   └── tokenizer.py           # BPE: train_bpe(), encode(), decode()
+│   ├── text_utils.py
+│   ├── vectorizer.py
+│   ├── data_loader.py
+│   ├── classifier.py
+│   ├── trainer.py
+│   ├── tokenizer.py        # BPE (lab / Stage 1)
+│   ├── qa_model.py         # Stage 1 extractive transformer (lab, unused by main)
+│   ├── predict_qa.py       # span inference helper (lab)
+│   └── retrieval.py        # Tavily fetch_answer()
 ├── scripts/
-│   ├── train.py               # two-pass training entry point
-│   ├── build_vocab.py         # trains BPE merges on SQuAD text
-│   ├── checking.py            # one-off close_app/exit reclassification audit
-│   └── audit_data.py          # dataset inspection
+│   ├── train.py            # classifier two-pass train
+│   ├── train_qa.py         # Stage 1 train (lab)
+│   ├── build_dataset.py
+│   ├── build_vocab.py
+│   └── audit_data.py
 ├── actions/
-│   ├── handlers.py            # one function per intent
-│   ├── registry.py            # label → handler map
-│   └── app_finder.py          # app index, process listing, process matching
+│   ├── handlers.py         # intents + slot extractors
+│   ├── registry.py
+│   └── app_finder.py
 ├── memory/
-│   ├── corrections.py         # !fix logging
-│   └── retrain.py             # gated batch retrain
-├── tests/                     # 21 pytest tests
+│   ├── corrections.py
+│   └── retrain.py
+├── tests/
 ├── models/
-│   ├── weights.npz            # trained parameters (committed)
-│   └── vocab.json             # trained vocabulary (committed)
+│   ├── weights.npz         # classifier (committed)
+│   ├── vocab.json
+│   └── qa_weights.npz      # Stage 1 (gitignored)
 ├── data/
-│   ├── seed_examples.json     # 773 training examples
-│   ├── corrections.json       # !fix log (gitignored)
-│   ├── bpe_merges.json        # 400 trained BPE merges
-│   └── squad/                 # SQuAD v1.1 source files (gitignored)
-└── notes.txt                  # created at runtime (gitignored)
+│   ├── seed_examples.json  # 8 intents
+│   ├── corrections.json    # gitignored
+│   ├── bpe_merges.json
+│   ├── qa_vocab.json
+│   └── squad/              # gitignored
+└── notes.txt               # runtime notes (gitignored)
 ```
 
 ## Where this is going
 
-The seven intents above are a **closed set**. Every one of them maps a sentence to a fixed bucket and runs a fixed function. That's the right architecture for commands, and it is structurally incapable of answering an open question — no amount of extra training data turns a bag-of-words classifier into something that can produce a free-form sentence. More data gives you more buckets, never generation.
+**Done for the assistant product path**
 
-So the next phase splits along that exact seam.
+- [x] Eight intents including `knowledge_query` via Tavily answer
+- [x] Handlers return a completion string; `process()` is the single turn
+- [x] Optional mic session + local TTS
+- [x] Slots for search (Google / YouTube) and note body
+- [x] Stage 1 transformer lab (trained, parked off `main`)
 
-### `knowledge_query` — an eighth intent, with a real model behind it
+**Next (still command/slots, not vision)**
 
-Real informational questions ("what is the definition of consciousness") get their own intent and their own pipeline:
+- [ ] Stronger multi-slot lines (`open X and search Y`) without hardcoding one media intent
+- [ ] Optional: Windows reminders / notifications (separate from file notes)
+- [ ] Optional: local STT so voice does not depend on Google
+- [ ] Screen / UI vision only when command + slots are solid
 
-1. **Retrieval** — [Tavily](https://tavily.com) fetches candidate passages for the question.
-2. **Stage 1: extraction** — a small transformer, non-generative. Question + one passage + a separator token go in; two linear heads emit a softmax over sequence positions for the answer's start and end index. This is the same softmax the intent classifier uses, applied per-position instead of per-sentence. Trained on **SQuAD v1.1**, which already ships in exactly the `(passage, question, answer-span)` shape — no hand-labeling. Target: `d_model=64`, ~128-token context, tens of thousands of parameters.
-3. **Stage 2: fusion** — generative. Question + Stage 1's extracted spans (not full passages) go in; one fused answer sentence comes out, autoregressively. Vocab-sized output head, ~100k–300k parameters. Trained on **HotpotQA**, which has the multi-source fusion shape.
+**Parked (lab, not product blockers)**
 
-Combined target is roughly 200k–450k parameters — about 0.3% of GPT-2 small. That number is the point, not an apology for it: the scope is narrow question answering over retrieved text, not open-domain chat, and picking extraction-then-fusion over end-to-end generation is what keeps it there.
-
-Both stages share one BPE vocabulary, trained by `scripts/build_vocab.py` on SQuAD contexts and questions and saved to `data/bpe_merges.json` (400 merges over a ~2.5M-character sample). Stage 2 consumes Stage 1's output, so a token id has to mean the same thing to both — separately-trained vocabularies would be a silent correctness bug.
-
-Build order:
-
-- [x] Shared BPE vocabulary wired into `core/tokenizer.py`, trained and saved
-- [ ] Stage 1 alone, verified against real SQuAD examples — gradient checks plus held-out span accuracy
-- [ ] Stage 2, including the autoregressive sampling loop (temperature, top-k, multinomial draw)
-- [ ] `knowledge_query` handler: Tavily fetch → extract per source → fuse → print
-- [ ] The intent itself: ~100 examples mined from the existing `unknown` bucket, retrain, verify no crossover
-
-### `unknown` narrows to noise
-
-Once `knowledge_query` exists, `unknown` stops being a catch-all. It keeps genuine gibberish and casual chit-chat ("how are you") and hands everything informational to the new intent. Chit-chat responses will come from a small pretrained local model through Ollama — borrowed weights, not hand-built, and a deliberate exception to this project's rule rather than an oversight. Conversational small talk isn't what the from-scratch effort is for.
-
-### Also queued
-
-- Four more command intents in one batch — media control, calculator, timers, reminders — with candidate examples mined out of the current `unknown` bucket first
-- Voice input as a front end: push-to-talk before continuous wake-word detection. The classifier needs zero changes for this; voice only becomes a new way to produce the `text` variable
-
-## Roadmap
-
-- [x] Permanent train/test split in-repo (`scripts/train.py`)
-- [x] `memory/retrain.py` — gated batched retrain on seed + accumulated corrections
-- [x] `close_app` intent — new label, retrain, handler, registry entry
-- [x] Full test suite — `test_gradients.py`, `test_vectorizer.py`, `test_text_utils.py`
-- [x] UWP/Store app coverage via `Get-StartApps`
-- [x] Shared BPE vocabulary trained on SQuAD
-- [ ] Stage 1 extraction model
-- [ ] Stage 2 fusion model
-- [ ] `knowledge_query` intent, end to end
+- [ ] Improve Stage 1 span EM (optional experiment)
+- [ ] Stage 2 generative fusion — deliberately off the critical path
