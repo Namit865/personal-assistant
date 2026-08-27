@@ -67,7 +67,12 @@ SEARCH_FILLER = FILLER | {
     "search","google","web","look","find","browse","search for","google for","web for","for"
 }
 
-FILE_FILLER = FILLER | {"file", "files", "document", "documents", "folder", "show", "find", "locate"}
+FILE_FILLER = FILLER | {
+    "file", "files", "document", "documents", "folder",
+    "show", "find", "locate", "fetch", "get", "want",
+    "where", "from", "desktop", "downloads", "documents",
+    "please", "me", "my",
+}
 
 
 NOTE_FILLERS = FILLER | {

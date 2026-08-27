@@ -34,6 +34,8 @@ def find_files(name, limit=10):
             stem = path.stem.lower()
             toks = _tokens(stem)
 
+
+
             if name == stem or name == filename or name == path.stem.lower():
                 rank = 0
             elif toks == [name] or toks == name.split():
@@ -43,7 +45,11 @@ def find_files(name, limit=10):
             elif stem.startswith(name) or filename.startswith(name):
                 rank = 2
             else:
-                continue
+                q_toks = _tokens(name)
+                if q_toks and all(t in toks for t in q_toks):
+                    rank = 1 if len(toks) <= len(q_toks) + 3 else 2
+                else:
+                    continue
 
             is_doc = 0 if path.suffix.lower() in DOC_EXT else 1
             hits.append((rank, is_doc, len(filename), path))
