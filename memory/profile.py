@@ -5,7 +5,7 @@ MAX = 5
 
 def load_profile():
     if PROFILE_FILE.exists():
-        return json.load(PROFILE_FILE.read_text(encoding="utf-8"))
+        return json.loads(PROFILE_FILE.read_text(encoding="utf-8"))
     return {"recent_questions" : []}
 
 def save_profile(profile):

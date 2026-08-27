@@ -22,6 +22,7 @@ from core.text_utils import tokenize
 from core.retrieval import fetch_answer,research_answer
 from actions.file_finder import find_files,open_file
 from memory.profile import remember_question
+from core.jobs import start_research
 
 FILLER = {
     "open",
@@ -64,7 +65,7 @@ FILLER = {
 }
 
 SEARCH_FILLER = FILLER | {
-    "search","google","web","look","find","browse","search for","google for","web for","for"
+    "search","google","web","look","find","browse","search for","google for","web for","for","research","find out",
 }
 
 FILE_FILLER = FILLER | {
@@ -128,11 +129,8 @@ def close_app(text, content):
 
 def knowledge_query(text, content):
     remember_question(text)
-    ans = research_answer(text)
-    if ans:
-        return ans
-    else:
-        return "I couldn't find the information you asked for"
+    start_research(text)
+    return "Searching. I'll speak when I have an answer"
 
 def open_app(text, context):
     app_name = extract_app_name(text)

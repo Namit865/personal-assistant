@@ -4,15 +4,14 @@ import speech_recognition as sr
 import pyttsx3
 from config import VOCAB_FILE, WEIGHTS_FILE, SEED_FILE, CORRECTIONS_FILE
 from core.classifier import predict
+from core.jobs import job_results
 from core.data_loader import load_examples, build_label_map
 from actions.registry import REGISTRY
 from memory.corrections import log_correction
 from actions.app_finder import build_app_index
 import time
 
-
 THRESHOLD = 0.6
-
 
 def load_model():
     vocab = json.loads(VOCAB_FILE.read_text())
@@ -99,8 +98,12 @@ def main():
 
     last_text = None
     voice_mode = False
-
+        
     while True:
+        while not job_results.empty():
+            done_msg = job_results.get()
+            print(done_msg)
+            speak(done_msg)
         if voice_mode:
             heard = listen()
             if not heard:
