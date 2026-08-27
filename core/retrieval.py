@@ -15,3 +15,19 @@ def fetch_answer(question):
     response = client.search(question,max_results=3,include_answer=True)
 
     return response.get("answer")
+
+
+def research_answer(question):
+    queries = [
+        question,
+        question + "explained simply",
+        "what is " + question,
+    ]
+
+    best = ""
+    for q in queries:
+        ans = fetch_answer(q)
+        if ans and len(ans) > len(best):
+            best = ans
+        
+    return best if best else "I couldn't find the information you asked for"

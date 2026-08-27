@@ -19,9 +19,8 @@ from collections import Counter
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.text_utils import tokenize
-from core.retrieval import fetch_answer
+from core.retrieval import fetch_answer,research_answer
 from actions.file_finder import find_files,open_file
-
 
 FILLER = {
     "open",
@@ -127,11 +126,11 @@ def close_app(text, content):
                 return f"couldn't close the {name} (pid {pid}): {e}"
 
 def knowledge_query(text, content):
-    ans = fetch_answer(text)
+    ans = research_answer(text)
     if ans:
         return ans
     else:
-        return "I couldn't find the information you asked for."
+        return "I couldn't find the information you asked for"
 
 def open_app(text, context):
     app_name = extract_app_name(text)
@@ -282,3 +281,4 @@ def open_path(text, context):
     path = hits[0]
     open_file(path)
     return f"found {path.name}"
+
