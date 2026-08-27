@@ -187,9 +187,11 @@ personal-assistant/
 - [x] **Profile** — last knowledge questions in `data/profile.json` (gitignored)
 - [x] **Background research** — `knowledge_query` starts a thread; main drains `job_results` and speaks the answer
 - [x] **Profile-steered research** — optional extra Tavily query using a recent profile question
+- [x] **Last browser** — `web_search` stores `last_browser` `{url, query}` in `profile.json`
 
 **Next**
 
+- [ ] Reopen last browser URL from a command (“open last search”)
 - [ ] Optional: Windows reminders / notifications
 - [ ] Optional: local STT so voice does not depend on Google
 - [ ] Browser session (“in Chrome, do …”) beyond opening a search URL

@@ -23,6 +23,7 @@ from core.retrieval import fetch_answer,research_answer
 from actions.file_finder import find_files,open_file
 from memory.profile import remember_question
 from core.jobs import start_research
+from memory.profile import remember_browser
 
 FILLER = {
     "open",
@@ -150,10 +151,12 @@ def web_search(text, context):
         query = " ".join(w for w in words if w not in ("youtube", "in", "on"))
         url = f"https://www.youtube.com/results?search_query={quote_plus(query)}"
         open_url(url, context)
+        remember_browser(url,query if "youtube" in words else clean_query)
         return f"searching for {query} on youtube"
 
     url = f"https://www.google.com/search?q={quote_plus(clean_query)}"
     open_url(url, context)
+    remember_browser(url,clean_query)
     return f"opened search for {clean_query}"
 
 def create_note(text, context):
