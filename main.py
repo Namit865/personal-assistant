@@ -144,6 +144,16 @@ def main():
         print(message)
         speak(message)
 
+        if message.startswith("Searching"):
+            for _ in range(120):
+                if not job_results.empty():
+                    break
+                time.sleep(0.5)
+            while not job_results.empty():
+                done_msg = job_results.get()
+                print(done_msg)
+                speak(done_msg)
+
         if voice_mode:
             time.sleep(1)
         if label == "exit":

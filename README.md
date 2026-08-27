@@ -183,13 +183,16 @@ personal-assistant/
 - [x] Compound `and` turns + `normalize` for short `search` / `web` / `google` phrases
 - [x] Web search opens in Chrome via `chrome.exe` (not OS default / not `.lnk` + `Popen`)
 - [x] Stage 1 transformer lab (trained, parked off `main`)
+- [x] **Files** — `open_path` + ranked search under `FILE_ROOTS` (incl. OneDrive Desktop/Documents); Explorer `/select,path`
+- [x] **Profile** — last knowledge questions in `data/profile.json` (gitignored)
+- [x] **Background research** — `knowledge_query` starts a thread; main drains `job_results` and speaks the answer
+- [x] **Profile-steered research** — optional extra Tavily query using a recent profile question
 
-**Next facility (in progress): Files**
+**Next**
 
-- [ ] Search chosen folders by filename and open / select in Explorer (no vision)
 - [ ] Optional: Windows reminders / notifications
 - [ ] Optional: local STT so voice does not depend on Google
-- [ ] Browser session (“in Chrome, do …”) after Files works
+- [ ] Browser session (“in Chrome, do …”) beyond opening a search URL
 - [ ] Screen / UI vision only when tools are not enough
 
 **Parked (lab, not product blockers)**

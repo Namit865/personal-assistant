@@ -18,11 +18,20 @@ def fetch_answer(question):
 
 
 def research_answer(question):
+    from memory.profile import load_profile
+
     queries = [
         question,
-        question + "explained simply",
+        question + " explained simply",
         "what is " + question,
     ]
+
+    recent = load_profile().get("recent_questions",[])
+
+    older = [q for q in recent if q.lower() != question.lower()]
+    if older:
+        hint = older[-1]
+        queries.append(question + " related to " + hint)
 
     best = ""
     for q in queries:
