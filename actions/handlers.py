@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from core.text_utils import tokenize
 from core.retrieval import fetch_answer,research_answer
 from actions.file_finder import find_files,open_file
+from memory.profile import remember_question
 
 FILLER = {
     "open",
@@ -126,6 +127,7 @@ def close_app(text, content):
                 return f"couldn't close the {name} (pid {pid}): {e}"
 
 def knowledge_query(text, content):
+    remember_question(text)
     ans = research_answer(text)
     if ans:
         return ans

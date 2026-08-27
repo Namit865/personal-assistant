@@ -7,3 +7,4 @@ data/squad/
 models/qa_weights.npz
 data/squad_train_examples.json
 notes.txt
+data/profile.json

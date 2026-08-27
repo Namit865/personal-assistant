@@ -40,3 +40,5 @@ FILE_ROOTS = [
     Path.home() / "Music",
     Path.home() / "Videos",
 ]
+
+PROFILE_FILE = DATA_DIR / "profile.json"
