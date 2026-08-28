@@ -42,3 +42,5 @@ FILE_ROOTS = [
 ]
 
 PROFILE_FILE = DATA_DIR / "profile.json"
+
+REMINDERS_FILE = DATA_DIR / "reminders.json"

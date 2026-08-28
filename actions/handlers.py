@@ -1,3 +1,5 @@
+import dateparser
+from dateparser.search import search_dates
 import webbrowser
 from urllib.parse import quote_plus
 from datetime import datetime
@@ -24,49 +26,18 @@ from actions.file_finder import find_files,open_file
 from memory.profile import remember_question
 from core.jobs import start_research
 from memory.profile import remember_browser,last_browser
+from memory.reminder import add_reminder
 
 FILLER = {
-    "open",
-    "launch",
-    "start",
-    "run",
-    "up",
-    "fire",
-    "the",
-    "my",
-    "a",
-    "an",
-    "please",
-    "can",
-    "you",
-    "for",
-    "me",
-    "app",
-    "application",
-    "program",
-    "close",
-    "kill",
-    "quit",
-    "exit",
-    "stop",
-    "shut",
-    "down",
-    "terminate",
-    "out",
-    "of",
-    "could",
-    "would",
-    "mind",
-    "closing",
-    "force",
-    "window",
-    "need",
-    "i",
-    "to",
+    "open","launch","start","run","up","fire","the","my","a","an","please",
+    "can","you","for","me","app","application","program","close","kill","quit",
+    "exit","stop","shut","down","terminate","out","of","could","would","mind",
+    "closing","force","window","need","i","to",
 }
 
 SEARCH_FILLER = FILLER | {
-    "search","google","web","look","find","browse","search for","google for","web for","for","research","find out",
+    "search","google","web","look","find","browse","search for",
+    "google for","web for","for","research","find out",
 }
 
 FILE_FILLER = FILLER | {
@@ -78,20 +49,13 @@ FILE_FILLER = FILLER | {
 
 
 NOTE_FILLERS = FILLER | {
-    "note",
-    "notes",
-    "remember",
-    "remind",
-    "write",
-    "down",
-    "take",
-    "make",
-    "add",
-    "create",
-    "new",
-    "saying",
-    "about",
-    "that",
+    "note","notes","remember","remind","write","down","take",
+    "make","add","create","new","saying","about","that",
+}
+
+REMINDER_FILLER = NOTE_FILLERS | {
+    "set", "timer", "alarm", "schedule", "later", "tomorrow",
+    "today", "tonight", "morning", "afternoon", "evening",
 }
 
 def open_url(url,context):
@@ -175,6 +139,14 @@ def create_note(text, context):
         f.write(f"{datetime.now():%Y-%m-%d %H:%M} | {body}\n")
     return f"note saved to {body}"
 
+def set_reminder(text, context):
+    body,when = parse_reminder(text)
+
+    if not when:
+        return "I couldn't figure out when to remind you"
+    
+    add_reminder(body,when)
+    return f"Reminder set for {when:%Y-%m-%d %H:%M}: {body}"
 
 def system_status(text, context):
     lines = []
@@ -303,5 +275,27 @@ def read_notes(text, context):
     lines = notes.read_text(encoding="utf-8").strip().splitlines()
     if not lines:
         return "You have no notes yet"
+
+    shown = []
+    for line in lines[-5:]:
+        if " | " in line:
+            ts, body = line.split(" | ", 1)
+            if body.startswith("[reminder] "):
+                body = "reminder: " + body[len("[reminder] "):]
+            shown.append(f"{ts} | {body}")
+        else:
+            shown.append(line)
+
+    return "Your notes: " + "; ".join(shown)
+
+def parse_reminder(text):
+    hits = search_dates(text,settings = {"PREFER_DATES_FROM": "future"})
+    if not hits:
+        return None,None
     
-    return "Your notes: " + "; ".join(lines[-5:])
+    when_phrase,when_dt = hits[-1]
+    body = text.replace(when_phrase,"")
+    words = tokenize(body)
+    body = " ".join(w for w in words if w not in REMINDER_FILLER)
+
+    return body or "reminder",when_dt

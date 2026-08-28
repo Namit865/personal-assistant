@@ -37,7 +37,7 @@ def train(X, y, hidden_size=32, epochs=2000, learning_rate=0.1):
             w1, b1, w2, b2, dw1, db1, dw2, db2, learning_rate
         )
 
-        if epoch % 200 == 0:
+        if epoch/epochs*100 % 10 == 0:
             print(f"Epoch: {epoch} | Loss: {loss}")
 
     return w1, b1, w2, b2

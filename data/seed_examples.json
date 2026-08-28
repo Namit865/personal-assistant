@@ -3810,5 +3810,405 @@
   {
     "text": "read notes please",
     "intent": "read_notes"
+  },
+  {
+    "text": "remind me to call mom tomorrow at 9am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder for dentist on monday at 3pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in 2 minutes to check the oven",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm me tonight at 8 to take medicine",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to wake up early tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set an alarm for 6:30 am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you remind me to buy milk later today",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "ping me in an hour to log off from work",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "make a reminder to check the laundry in twenty mins",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me on Friday afternoon to submit the report",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder: feed the dog at 5",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up in 45 minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to pay the electricity bill tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you set a reminder for my gym session tomorrow at 6pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "put a reminder for doctor appointment next Tuesday at 11 am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to call dad back in 10 minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm for 7 am every weekday",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to drink water every two hours",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to take the pizza out in 15 mins",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me about the meeting at 2:30",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you remind me to water the plants this weekend",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up at 8 tomorrow morning",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to lock the back door tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set reminder for car servicing on Oct 14th",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in 5 minutes to check my email",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "put an alarm for midnight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me tomorrow morning to grab my keys",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to call Sarah on her birthday next Sunday",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to pick up the dry cleaning at 4pm today",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you set an alarm for 15 minutes from now",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to renew my insurance by Friday",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder: trash pickup tomorrow night",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to check the soup on the stove in 8 minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "make a reminder for parent teacher meeting at 4:15",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to take a stretch break in half an hour",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set alarm for ten to seven in the morning",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to print the flight tickets tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "could you remind me to buy eggs when I go out at 5",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder for the flight check in tomorrow afternoon",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to message John back in a bit",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm me at 9pm to turn off the sprinkler",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to do the dishes before going to bed",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to watch the match tonight at 8:45",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in 30 seconds to flip the burger",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up at half past six",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to pack my charger tomorrow before leaving",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set reminder: client call at 10 am sharp",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to buy gas on my way home tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you remind me to prep dinner at 7",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder for the interview on Thursday at 2 pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to check on the kids in twenty minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm for quarterly review meeting tomorrow at 11:30",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to take my vitamins every morning at 8",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to book train tickets tonight at 10",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me about the dentist appt next Monday morning",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up at 5:15 am tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to call the landlord this evening",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set reminder for final project submission on Friday at midnight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in an hour to take a walk",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "put a reminder to buy birthday decorations tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me tomorrow to drop off the package",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to text Mike back at 3 o'clock",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to defrost the chicken at 4 pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you set an alarm for ten mins from now",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to cancel the free trial by Wednesday",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder: conference code entry at 1:55 pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to turn off the oven in 12 minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "make a reminder for guitar practice at 6",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to check the weather forecast tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set alarm for quarter to eight am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to look at the contract tomorrow at noon",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "could you remind me to buy groceries after work today",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder for yoga class tomorrow at 7am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to close the windows if it rains later",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm me at 11pm to go to sleep",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to clear the browser cache tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to check the stock options at 9:30 am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in 3 minutes to call tech support back",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up at seven am tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to update my resume this weekend",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set reminder: team sync at 4:30 pm today",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to buy a gift for office party tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you remind me to check the oil level in my car at 5",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder for the webinar on Wednesday at 4pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to pay rent tomorrow morning",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "alarm for project standup tomorrow at 10 am",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to take a water break in forty minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to download the new update tonight",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me about the haircut appt this Saturday afternoon",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "wake me up at 6 am sharp tomorrow",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to text Alex in 15 minutes",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set reminder for credit card payment due on Friday",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me in two hours to check the server logs",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "put a reminder to call the mechanic tomorrow at 2",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me tomorrow to bring the documents to office",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder to change the smoke detector batteries this weekend",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to turn off the heater at 10pm",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "can you set an alarm for 5 minutes from now to check the rice",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "remind me to sign the lease by Thursday afternoon",
+    "intent": "set_reminder"
+  },
+  {
+    "text": "set a reminder: call customer service at 9 am sharp tomorrow",
+    "intent": "set_reminder"
   }
 ]

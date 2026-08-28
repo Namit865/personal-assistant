@@ -190,9 +190,10 @@ personal-assistant/
 - [x] **Last browser** — `web_search` stores `last_browser` `{url, query}` in `profile.json`
 - [x] **Reopen last search** — `web_search` reads `last_browser` and opens Chrome when you say “open last search” (etc.)
 - [x] **Read notes** — `read_notes` reads last entries from `notes.txt` and speaks them back
+- [x] **Reminders** — `set_reminder` stores timed reminders; background loop speaks them; completed ones are removed from `reminders.json` and `notes.txt`
 
 **Next**
-- [ ] Optional: Windows reminders / notifications
+- [ ] Optional: Windows toast notification when a reminder fires
 - [ ] Optional: local STT so voice does not depend on Google
 - [ ] Browser session (“in Chrome, do …”) beyond opening a search URL
 - [ ] Screen / UI vision only when tools are not enough

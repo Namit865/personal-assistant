@@ -25,7 +25,7 @@ print(
     "========================== Production Full Data Training =========================="
 )
 
-w1, b1, w2, b2 = train(X, Y)
+w1, b1, w2, b2 = train(X, Y, epochs=5000)
 
 np.savez(WEIGHTS_FILE, w1=w1, b1=b1, w2=w2, b2=b2)
 
@@ -89,6 +89,20 @@ for cmd in [
     "shut down the assistant",
     "close that window",
     "leave now",
+    "remind me to call mom tomorrow at 9am",
+    "set a reminder for dentist on monday at 3pm",
+    "remind me in 2 minutes to check the oven",
+    "alarm me tonight at 8 to take medicine",
+    "remind me to wake up early tomorrow",
+    "set an alarm for 6:30 am",
+    "can you remind me to buy milk later today",
+    "ping me in an hour to log off from work",
+    "remind me tomorrow to bring the documents to office",
+    "set a reminder to change the smoke detector batteries this weekend",
+    "remind me to turn off the heater at 10pm",
+    "can you set an alarm for 5 minutes from now to check the rice",
+    "remind me to sign the lease by Thursday afternoon",
+    "set a reminder: call customer service at 9 am sharp tomorrow",
 ]:
     label, conf = predict(
         cmd, vocab, labels, w1_pred, b1_pred, w2_pred, b2_pred

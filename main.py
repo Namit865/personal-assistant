@@ -1,10 +1,11 @@
 import json
+import threading
 import numpy as np
 import speech_recognition as sr
 import pyttsx3
 from config import VOCAB_FILE, WEIGHTS_FILE, SEED_FILE, CORRECTIONS_FILE
 from core.classifier import predict
-from core.jobs import job_results
+from core.jobs import start_reminder_loop, start_job_drain
 from core.data_loader import load_examples, build_label_map
 from actions.registry import REGISTRY
 from memory.corrections import log_correction
@@ -12,6 +13,7 @@ from actions.app_finder import build_app_index
 import time
 
 THRESHOLD = 0.6
+_speak_lock = threading.Lock()
 
 def load_model():
     vocab = json.loads(VOCAB_FILE.read_text())
@@ -45,9 +47,14 @@ def listen():
 
 
 def speak(message):
-    engine = pyttsx3.init()
-    engine.say(message)
-    engine.runAndWait()
+    with _speak_lock:
+        engine = pyttsx3.init()
+        engine.say(message)
+        engine.runAndWait()
+
+
+def safe_speak(message):
+    speak(message)
 
 def normalize(text):
     words = text.lower().split()
@@ -91,6 +98,9 @@ def process(text,vocab,label_map,w1,b1,w2,b2,context):
 
 
 def main():
+    start_reminder_loop()
+    start_job_drain(safe_speak)
+
     vocab, label_map, w1, b1, w2, b2, context = load_model()
     print("Write a message...")
     print("Press 'v' to enable voice mode")
@@ -100,10 +110,6 @@ def main():
     voice_mode = False
         
     while True:
-        while not job_results.empty():
-            done_msg = job_results.get()
-            print(done_msg)
-            speak(done_msg)
         if voice_mode:
             heard = listen()
             if not heard:
@@ -143,16 +149,6 @@ def main():
         label, message = process(text, vocab, label_map, w1, b1, w2, b2, context)
         print(message)
         speak(message)
-
-        if message.startswith("Searching"):
-            for _ in range(120):
-                if not job_results.empty():
-                    break
-                time.sleep(0.5)
-            while not job_results.empty():
-                done_msg = job_results.get()
-                print(done_msg)
-                speak(done_msg)
 
         if voice_mode:
             time.sleep(1)

@@ -9,6 +9,7 @@ from actions.handlers import (
     knowledge_query,
     open_path,
     read_notes,
+    set_reminder
 )
 
 REGISTRY = {
@@ -22,4 +23,5 @@ REGISTRY = {
     "knowledge_query" : knowledge_query,
     "open_path": open_path,
     "read_notes": read_notes,
+    "set_reminder" : set_reminder
 }

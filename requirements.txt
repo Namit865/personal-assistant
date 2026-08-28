@@ -5,3 +5,4 @@ tavily-python
 SpeechRecognition
 pyaudio
 pyttsx3
+dateparser
