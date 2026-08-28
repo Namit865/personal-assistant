@@ -6,3 +6,4 @@ SpeechRecognition
 pyaudio
 pyttsx3
 dateparser
+winotify

@@ -56,7 +56,7 @@ The classifier only picks the **job**. Handlers (and a thin pre-step in `main`) 
 - **`and`** — `open notepad and search python` runs two turns and returns both completion lines
 - **`open_url`** — web searches call real `chrome.exe` under Program Files / LocalAppData (not a Start Menu `.lnk`, which causes WinError 193 with `Popen`). Falls back to `cmd /c start chrome <url>` if needed. This is intentional so search does not open Edge when Edge is the OS default browser.
 
-A note is a **file line**, not a Windows reminder popup. YouTube is **search results**, not autoplay. Reminders / autoplay are later stages.
+A note is a **file line**. Timed reminders live in `reminders.json`, speak + toast when due, and clean themselves out of notes. YouTube is **search results**, not autoplay.
 
 ### `knowledge_query` (product path)
 
@@ -191,9 +191,9 @@ personal-assistant/
 - [x] **Reopen last search** — `web_search` reads `last_browser` and opens Chrome when you say “open last search” (etc.)
 - [x] **Read notes** — `read_notes` reads last entries from `notes.txt` and speaks them back
 - [x] **Reminders** — `set_reminder` stores timed reminders; background loop speaks them; completed ones are removed from `reminders.json` and `notes.txt`
+- [x] **Windows toast** — `winotify` popup when a reminder fires (`core/notify.py`), alongside TTS
 
 **Next**
-- [ ] Optional: Windows toast notification when a reminder fires
 - [ ] Optional: local STT so voice does not depend on Google
 - [ ] Browser session (“in Chrome, do …”) beyond opening a search URL
 - [ ] Screen / UI vision only when tools are not enough

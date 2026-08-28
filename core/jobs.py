@@ -2,11 +2,10 @@ from datetime import datetime
 import time
 from queue import Queue, Empty
 import threading
-
 from memory.reminder import due_reminders
+from core.notify import show_toast
 
 job_results = Queue()
-
 
 def run_research(text):
     from core.retrieval import research_answer
@@ -25,6 +24,7 @@ def start_research(text):
 def _reminder_loop():
     while True:
         for msg in due_reminders(datetime.now()):
+            show_toast("Reminder",msg)
             job_results.put(f"Reminder: {msg}")
         time.sleep(5)
 
