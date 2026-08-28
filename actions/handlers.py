@@ -294,3 +294,14 @@ def open_path(text, context):
     open_file(path)
     return f"found {path.name}"
 
+
+def read_notes(text, context):
+    notes = ROOT / "notes.txt"
+    if not notes.exists():
+        return "No notes found"
+    
+    lines = notes.read_text(encoding="utf-8").strip().splitlines()
+    if not lines:
+        return "You have no notes yet"
+    
+    return "Your notes: " + "; ".join(lines[-5:])

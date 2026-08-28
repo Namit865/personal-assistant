@@ -176,7 +176,7 @@ personal-assistant/
 
 **Done for the assistant product path**
 
-- [x] Eight intents including `knowledge_query` via Tavily answer
+- [x] Ten intents (incl. `knowledge_query`, `open_path`, `read_notes`) via Tavily answer where needed
 - [x] Handlers return a completion string; `process()` is the single turn
 - [x] Optional mic session + local TTS
 - [x] Slots for search (Google / YouTube) and note body
@@ -188,10 +188,10 @@ personal-assistant/
 - [x] **Background research** — `knowledge_query` starts a thread; main drains `job_results` and speaks the answer
 - [x] **Profile-steered research** — optional extra Tavily query using a recent profile question
 - [x] **Last browser** — `web_search` stores `last_browser` `{url, query}` in `profile.json`
+- [x] **Reopen last search** — `web_search` reads `last_browser` and opens Chrome when you say “open last search” (etc.)
+- [x] **Read notes** — `read_notes` reads last entries from `notes.txt` and speaks them back
 
 **Next**
-
-- [ ] Reopen last browser URL from a command (“open last search”)
 - [ ] Optional: Windows reminders / notifications
 - [ ] Optional: local STT so voice does not depend on Google
 - [ ] Browser session (“in Chrome, do …”) beyond opening a search URL

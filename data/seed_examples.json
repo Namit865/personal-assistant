@@ -3695,9 +3695,120 @@
     "text": "open the file called summary",
     "intent": "open_path"
   },
-  {"text": "open my last search", "intent": "web_search"},
-  {"text": "reopen last search", "intent": "web_search"},
-  {"text": "open last browser tab", "intent": "web_search"},
-  {"text": "open the last google search", "intent": "web_search"},
-  {"text": "show my last youtube search", "intent": "web_search"}
+  {
+    "text": "open my last search",
+    "intent": "web_search"
+  },
+  {
+    "text": "reopen last search",
+    "intent": "web_search"
+  },
+  {
+    "text": "open last browser tab",
+    "intent": "web_search"
+  },
+  {
+    "text": "open the last google search",
+    "intent": "web_search"
+  },
+  {
+    "text": "show my last youtube search",
+    "intent": "web_search"
+  },
+  {
+    "text": "read my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "show my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "what notes did I save",
+    "intent": "read_notes"
+  },
+  {
+    "text": "list my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read my saved notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "show recent notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read notes back to me",
+    "intent": "read_notes"
+  },
+  {
+    "text": "what did I write down",
+    "intent": "read_notes"
+  },
+  {
+    "text": "display my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "tell me my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read the notes file",
+    "intent": "read_notes"
+  },
+  {
+    "text": "show notes from today",
+    "intent": "read_notes"
+  },
+  {
+    "text": "list saved notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read last note",
+    "intent": "read_notes"
+  },
+  {
+    "text": "what notes do I have",
+    "intent": "read_notes"
+  },
+  {
+    "text": "pull up my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "can you read my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "remind me what I noted",
+    "intent": "read_notes"
+  },
+  {
+    "text": "recite my notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "open my notes list",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read back my recent notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "show what I saved in notes",
+    "intent": "read_notes"
+  },
+  {
+    "text": "read notes please",
+    "intent": "read_notes"
+  }
 ]
