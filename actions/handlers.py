@@ -23,7 +23,7 @@ from core.retrieval import fetch_answer,research_answer
 from actions.file_finder import find_files,open_file
 from memory.profile import remember_question
 from core.jobs import start_research
-from memory.profile import remember_browser
+from memory.profile import remember_browser,last_browser
 
 FILLER = {
     "open",
@@ -144,6 +144,15 @@ def open_app(text, context):
 
 
 def web_search(text, context):
+    lower = text.lower()
+    if "last" in lower and any(w in lower for w in ("search","browser","tab","page","youtube","google")):
+        info = last_browser()
+        if not info or not info.get("url"):
+            return "No last search saved yet"
+        open_url(info["url"],context)
+        q = info.get("query") or "last search"
+        return f"reopened {q}"
+        
     clean_query = extract_search_query(text)
     words = clean_query.split()
 

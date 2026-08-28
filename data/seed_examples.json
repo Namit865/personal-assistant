@@ -3694,5 +3694,10 @@
   {
     "text": "open the file called summary",
     "intent": "open_path"
-  }
+  },
+  {"text": "open my last search", "intent": "web_search"},
+  {"text": "reopen last search", "intent": "web_search"},
+  {"text": "open last browser tab", "intent": "web_search"},
+  {"text": "open the last google search", "intent": "web_search"},
+  {"text": "show my last youtube search", "intent": "web_search"}
 ]
